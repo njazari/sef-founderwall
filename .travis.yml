@@ -1,4 +1,4 @@
 language: ruby
+cache: bundler
 rvm:
-  - jruby
-  - rbx-2
+  - ruby-2.3.0
