@@ -45,6 +45,8 @@ GEM
     arel (6.0.3)
     arrayfields (4.9.2)
     ast (2.3.0)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
     autotest-rails (4.2.1)
       ZenTest (~> 4.5)
     binding_of_caller (0.7.2)
@@ -319,6 +321,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest
   autotest-rails
   byebug
   coffee-rails (~> 4.1.0)
