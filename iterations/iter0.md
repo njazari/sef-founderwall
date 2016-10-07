@@ -13,6 +13,7 @@ Nathan (Truong) Screencast:
 https://youtu.be/Jz09uLCI5EA
 
 Nahyun Screencast:
+https://youtu.be/vJy7xveCQkA
 
 Manny Screencast:
 
