@@ -9,7 +9,8 @@ https://youtu.be/VeEYbJuRjRY?t=17
 
 Sanchay Screencast:
 
-Truong Screencast:
+Nathan (Truong) Screencast:
+https://youtu.be/Jz09uLCI5EA
 
 Nahyun Screencast:
 
