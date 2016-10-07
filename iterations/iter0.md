@@ -16,4 +16,5 @@ Nahyun Screencast:
 https://youtu.be/vJy7xveCQkA
 
 Manny Screencast:
+https://youtu.be/KWQoI3UINxI
 
