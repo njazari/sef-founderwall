@@ -1,0 +1,2 @@
+class DedicationsController < ApplicationController
+end
