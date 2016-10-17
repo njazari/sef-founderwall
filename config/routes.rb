@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'wall/index'
+  resources :hospitals do 
+    resources :dedications
+  end
+  resources :donors do
+    resources :dedications
+  end
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -7,7 +12,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'wall#index'
+  root 'hospitals#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
