@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :hospitals
-  resources :dedications
-  resources :donors
+  resources :hospitals do 
+    resources :dedications
+  end
+  resources :donors do
+    resources :dedications
+  end
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
