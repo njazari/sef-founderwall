@@ -1,8 +1,8 @@
 class CreateDonors < ActiveRecord::Migration
   def change
     create_table :donors do |t|
-
-      t.timestamps null: false
+      t.string :first_name
+      t.string :last_name
     end
   end
 end
