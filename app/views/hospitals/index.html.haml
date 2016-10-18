@@ -1,1 +1,5 @@
 %h1 Wall of Founders
+%p Search
+= @hospitals.each do |hospital|
+  %p= hospital.name 
+  %p= link_to "More about #{hospital.name}", hospital_path(hospital)
