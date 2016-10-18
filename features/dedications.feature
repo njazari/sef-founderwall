@@ -38,3 +38,4 @@ Feature: List of Dedications
   Scenario: When I click on a donor I should be taken to the donor's page
     And I follow "John Smith"
     Then I should be on the donor page for "John Smith"
+    
