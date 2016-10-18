@@ -22,6 +22,6 @@ ratings:
   - app/**
   - lib/**
 exclude_paths:
-- spec/**/*
-- features/**
+- spec/
+- features/
 - "**/vendor/**/*"
