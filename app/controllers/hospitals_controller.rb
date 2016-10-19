@@ -6,6 +6,5 @@ class HospitalsController < ApplicationController
     
     def show
         @hospital = Hospital.find(params[:id])
-        @dedications = @hospital.dedications
     end
 end

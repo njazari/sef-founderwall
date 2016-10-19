@@ -13,7 +13,7 @@ Feature: List of Dedications
     | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | 
     | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 |
     And the following dedications exist
-    | id | status | dedication  | hospital_id | donor_id |
+    | id | tier | dedication  | hospital_id | donor_id |
     | 1  | Platinum | For the kids | 1 | 1 |
     | 2  | Gold | For the adults   | 1 | 2 |
     | 3  | Silver | Go Sankara! | 1 | 3 |
