@@ -1,1 +1,18 @@
-%h1 Hospital
+%h1 #{@hospital.name}
+
+%ul#hospital_info
+    %li
+        Surgeries:
+        = @hospital.surgeries
+    %li
+        Cost:
+        = @hospital.cost
+
+- @dedications.where(:hospital => @hospital.id).each do |dedication|
+    %div{:class => "dedication", :id => dedication.id} 
+        {#{dedication.dedication}}
+        = link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}",
+                  donor_path(Donor.find(dedication.donor_id))
+                  
+        = link_to "View", hospital_dedication_path(@hospital, dedication), :id => "view_#{dedication.id}"
+    
