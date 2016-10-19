@@ -3,5 +3,12 @@ cache: bundler
 rvm:
   - ruby-2.3.0
 script:
-  - bundle exec rake spec/
-  - bundle exec rake cucumber
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+  - bundle exec cucumber
+after_script:
+  - bundle exec rake send_to_codeclimate 
+addons:
+    code_climate:
+        repo_token: 5638cdd010e704253218d0821aa57816d888efd2e19d0f96c0158c71b5916fb7

@@ -1,0 +1,26 @@
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+ratings:
+  paths:
+  - app/**
+exclude_paths:
+- spec/
+- features/
+- "**/vendor/**/*"
