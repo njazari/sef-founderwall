@@ -13,7 +13,7 @@ Feature: List of Dedications
     | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | 
     | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 |
     And the following dedications exist
-    | id | status | dedication  | hospital_id | donor_id |
+    | id | tier | dedication  | hospital_id | donor_id |
     | 1  | Platinum | For the kids | 1 | 1 |
     | 2  | Gold | For the adults   | 1 | 2 |
     | 3  | Silver | Go Sankara! | 1 | 3 |
@@ -32,7 +32,7 @@ Feature: List of Dedications
     And I should see "Cost: 20000"
     
   Scenario: When I click on a dedication I should be taken to the dedication's page
-    And I press "view_1"
+    And I follow "view_1"
     Then I should be on the dedication page for "Hospital 1" dedication "1"
     
   Scenario: When I click on a donor I should be taken to the donor's page
