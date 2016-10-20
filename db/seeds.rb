@@ -1,9 +1,9 @@
-hospitals = [{:id => 1, :name => 'Sankara Rural Eye Hospital', :surgeries => 15000, :city => "Krishnankoil", :state => "Tamil Nadu", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Rural Eye Hospital"},
-            {:id => 2, :name => 'Sankara Eye Hospital', :surgeries => 10000, :city => "Ludhiana", :state => "Punjab", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Eye Hospital"},
-            {:id => 3, :name => 'Bangalore Hospital', :surgeries => 134546, :city => "Bengaluru", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Bangalore Hospitall"},
-            {:id => 4, :name => 'Sankara Eye Hospital, Guntur', :surgeries => 25000, :city => "Guntur", :state => "Andhra Pradesh", :building_status => "Completed", :contact => "vmaddipati@gmail.com", :story => "This is the story of The Sankara Eye Hospital, Guntur"},
-            {:id => 5, :name => 'Shimoga Hospital', :surgeries => 89307, :city => "Shimoga", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Shimoga Hospital"}
-  	 ]
+hospitals = [{:id => 1, :name => 'Sankara Rural Eye Hospital', :surgeries => 15000, :city => "Krishnankoil", :state => "Tamil Nadu", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Rural Eye Hospital", :lat => 9.565389, :lng =>77.688760},
+            {:id => 2, :name => 'Sankara Eye Hospital', :surgeries => 10000, :city => "Ludhiana", :state => "Punjab", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Eye Hospital", :lat =>30.861098, :lng => 75.704154},
+            {:id => 3, :name => 'Bangalore Hospital', :surgeries => 134546, :city => "Bengaluru", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Bangalore Hospitall", :lat => 12.957378, :lng => 77.712852},
+            {:id => 4, :name => 'Sankara Eye Hospital, Guntur', :surgeries => 25000, :city => "Guntur", :state => "Andhra Pradesh", :building_status => "Completed", :contact => "vmaddipati@gmail.com", :story => "This is the story of The Sankara Eye Hospital, Guntur", :lat => 16.350630, :lng => 80.49328},
+            {:id => 5, :name => 'Shimoga Hospital', :surgeries => 89307, :city => "Shimoga", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Shimoga Hospital", :lat => 13.904054, :lng => 75.560752}
+  ]
 
 hospitals.each do |hospital|
   Hospital.create!(hospital)

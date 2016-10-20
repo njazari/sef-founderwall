@@ -6,10 +6,11 @@ Feature: Google Maps View of Hospitals
   Background:
     Given the following hospitals exist
     | id | name | surgeries  | cost | lat | lng |
-    | 1  | Hospital 1 | 10 | 20000 | 26.26 | 55.55 |
-    And I am on the hospital page for “Hospital 1”
-    Scenario: When on a Hospital page, I should see the Google Map rendering of the Hospital’s location
-    Then I should see the title “Hospital 1 Location”
-    And I should see a pin on the map
-    And I should see the latitude "26.26"
-    And I should see the longitude "55.55"
+    | 1  | Hospital 1 | 4 | 60000 | 33.33 | 88.66 |
+    | 2  | Hospital 2 | 10 | 20000 | 26.26 | 55.55 |
+
+    And I am on the hospital page for "Hospital 2"
+    
+  Scenario: When on a Hospital page, I should see the Google Map rendering of the Hospital’s location
+    And I should see "26.26"
+    And I should see "55.55"
