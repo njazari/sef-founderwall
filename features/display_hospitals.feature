@@ -6,7 +6,7 @@ Feature: Display Main Hospital List
   
   Background:
     Given the wall is set up
-    Given the following hospitals exist$
+    Given the following hospitals exist
     | name        | 
     | Hospital 1  | 
     | Hospital 2  |
