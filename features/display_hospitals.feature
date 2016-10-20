@@ -6,18 +6,12 @@ Feature: Display Main Hospital List
   
   Background:
     Given the wall is set up
-    Given the following hospitals exist$
-    | name        | 
-    | Hospital 1  | 
-    | Hospital 2  |
-    | Hospital 3  |
-    | Hospital 4  | 
-    | Hospital 5  |
-    | Hospital 6  |
-    | Hospital 7  | 
-    | Hospital 8  |
-    | Hospital 9  |
-    | Hospital 10 | 
+    Given the following hospitals exist
+    | name        | city        | state | building_status |
+    | Hospital 1  | Los Angeles | CA    | In Construction   |
+    | Hospital 2  | Berkeley    | CA    | Completed         |
+    | Hospital 3  | Seattle     | WA    | Completed         |
+
 
   Scenario: Create hospital list page shown
     Given I am on the home page
@@ -27,8 +21,11 @@ Feature: Display Main Hospital List
   Scenario: All hospitals shown
     Given I am on the home page
     Then I should see "Hospital 1"
+    Then I should see "Hospital 1" before "Los Angeles"
+    And I should not see "Hospital 2" before "Los Angeles"
+    Then I should see "Hospital 1" before "In Construction" 
+    And I should not see "Hospital 2" before "In Construction"
     And I should see "Hospital 2"
-    And I should see "Hospital 10"
     And I should not see "Hospital 0"
   
   Scenario: All hospitals shown in alphabeltical order
