@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019063346) do
+ActiveRecord::Schema.define(version: 20161020070913) do
 
   create_table "dedications", force: :cascade do |t|
     t.string  "dedication"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20161019063346) do
     t.integer  "cost"
     t.string   "contact"
     t.string   "founded"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "lat",             precision: 10, scale: 6
     t.decimal  "lng",             precision: 10, scale: 6
-    t.string   "state"
   end
 
 end

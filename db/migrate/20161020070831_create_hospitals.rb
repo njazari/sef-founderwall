@@ -10,6 +10,7 @@ class CreateHospitals < ActiveRecord::Migration
       t.integer :cost
       t.string :contact
       t.string :founded
+      t.string :state
       
       t.timestamps
     end
