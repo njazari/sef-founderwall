@@ -7,7 +7,7 @@ Feature: Display Main Hospital List
   Background:
     Given the wall is set up
     Given the following hospitals exist
-    | name        | city        | state | building_status |
+    | name        | city        | state | building_status   |
     | Hospital 1  | Los Angeles | CA    | In Construction   |
     | Hospital 2  | Berkeley    | CA    | Completed         |
     | Hospital 3  | Seattle     | WA    | Completed         |
