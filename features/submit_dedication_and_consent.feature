@@ -1,6 +1,6 @@
-As a donor, 
-I want to give consent and submit my dedication, 
-so that I can be on the Wall of Founders
+Feature: As a donor, 
+    I want to give consent and submit my dedication, 
+    so that I can be on the Wall of Founders
 
 Background:
   And the following donors exist
