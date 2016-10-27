@@ -1,6 +1,6 @@
-As a user, 
-I want to see anchor links on the hospital page, 
-So that I don't have to scroll down to find them
+Feature: As a user, 
+  I want to see anchor links on the hospital page, 
+  So that I don't have to scroll down to find them
 
 Background:
   Given the following hospitals exist
