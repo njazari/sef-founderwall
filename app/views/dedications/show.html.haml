@@ -1,0 +1,22 @@
+%h1 "#{@dedication.hospital.name}}"
+%h1 "#{@dedication.donor.first_name} #{@dedication.donor.last_name}"
+
+%p= link_to "#{@dedication.id}", hospital_path(@dedication.hospital.name)
+
+%ul#dedication_info
+    %li
+        ID:
+        = @dedication.id
+    %li
+        Tier:
+        = @dedication.tier
+    %li
+        Dedication:
+        = @dedication.dedication
+
+%h1 "Permalink"
+%p= link_to "Twitter", ""
+%p= link_to "Facebook", ""
+        
+    
+// button_to(name = test, options = nil, html_options = nil, &block)
