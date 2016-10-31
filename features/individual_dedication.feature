@@ -37,12 +37,12 @@ Feature: Display Individual Dedication
 
 
   Scenario: Seeing all social media links for "John Smith" dedication to "Hospital 1"
-    Then I should see "Twitter"
-    And I should see "Facebook"
-    
-  Scenario: 
-    And I follow "Facebook"
-    And I confirm popup
-    Then I should see "Share on Facebook"
-    Then I should see "Post on Facebook"
+     And I should see the "Twitter" button
+     And I should see the "Facebook" button
+     And I should see the "Email" button
+     
+   Scenario: 
+     And I click "Facebook" button
+     Then I should see "Share on Facebook"
+     Then I should see "Post on Facebook"
     
