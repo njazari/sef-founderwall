@@ -1,0 +1,13 @@
+%h1 Dedication and Consent Form for Digital Wall of Founders
+
+%h2 Dedication
+%h3 Write a Dedication for your Donation
+%p= text_area_tag "dedication"
+
+%h2 Digital Wall of Founders
+
+.inline-field
+  %input#checkbox{:type => "checkbox"}/
+  %label{:for => "checkbox"} I want my dedication to appear on the Digital Wall of Founders
+
+%p= button_tag "Submit"
