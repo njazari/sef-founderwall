@@ -6,8 +6,7 @@ Background:
   And the following donors exist
     | id | first_name | last_name  | email | phone |
     | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 |
-  And I am on the submit dedication page
-  And my donor id is 1
+  And I am on the submit dedication page with donor id 1
 
 Scenario: After making a donation, I should see a form to enter my dedication and submit my consent
   Then I should see "My Dedication"

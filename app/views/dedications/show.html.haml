@@ -1,7 +1,8 @@
-%h1 "#{@dedication.hospital.name}}"
-%h1 "#{@dedication.donor.first_name} #{@dedication.donor.last_name}"
+%h1 #{@dedication.hospital.name}
+%h1 #{@dedication.donor.first_name} #{@dedication.donor.last_name}
 
 %p= link_to "#{@dedication.id}", hospital_path(@dedication.hospital.name)
+%p= link_to "Edit", edit_donor_dedication_path(@dedication.donor_id, @dedication.id)
 
 %ul#dedication_info
     %li
@@ -14,7 +15,7 @@
         Dedication:
         = @dedication.dedication
 
-%h1 "Permalink"
+%h1 Permalink
 %p= link_to "Twitter", ""
 %p= link_to "Facebook", ""
         
