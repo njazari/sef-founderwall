@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if resource.admin?
       rails_admin_path
     else
-      root_path
+      errors_path
     end
   end
 end
