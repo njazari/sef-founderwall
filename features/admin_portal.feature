@@ -18,21 +18,26 @@ Feature: Admin portal
     | 2  | Gold | For the adults   | 1 | 2 | true |
     | 3  | Silver | Go Sankara! | 1 | 3 | false |
     And the following users exist
-    | id | username | password | admin? |
-    | 1  | foo      | password | true   |
-    | 2  | bar      | password | false  | 
+    | id | email | admin |
+    | 1  | foo   | true   |
+    | 2  | bar   | false  | 
 
   Scenario: When I am not an admin, I should not be able to visit the admin portal
     Given I am user "bar"
-    And I try to visit the admin page
+    And I am on the admin page
     Then I should be on the error page
     
   Scenario: When I am an admin, I should be able to visit the admin portal
     Given I am user "foo"
-    And I try to visit the admin page
+    And I am on the admin page
     Then I should be on the admin page
     
+  Scenario: When I am not signed in, I should be taken to the sign in page
+    Given I try to visit the admin page
+    Then I should be on the sign in page
+    
   Scenario: When on the admin page, I should see the names of all the models
+    Given I am user "foo"
     Given I am on the admin page
     Then I should see "Hospitals"
     And I should see "Donors"

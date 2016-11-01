@@ -21,11 +21,15 @@ module NavigationHelpers
       hospital_dedication_path(Hospital.find_by_name($1), Dedication.find($2))
     when /^the donor page for "(.*)"$/
       donor_path(Donor.where(:first_name => $1.split[0], :last_name => $1.split[1]).pluck(:id)[0])
-      
+    when /^the admin page$/
+      rails_admin_path
     when /^the individual dedication page for "(.*)" with dedication "(.*)"$/
       donor_dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
-    
+    when /^the error page$/
+      errors_path
+    when /^the sign in page$/
+      new_user_session_path
     when /^the submit dedication page with donor id (.*)$/
 #      edit_hopsital_dedication_path($1, )
       '/'
