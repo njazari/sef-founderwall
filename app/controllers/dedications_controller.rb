@@ -1,6 +1,10 @@
 class DedicationsController < ApplicationController
     def show
         @dedication = Dedication.find(params[:id])
+        if @dedication.status == false
+            flash[:error] = "dedication"
+            redirect_to errors_path
+        end
         @hospital = Hospital.find(@dedication.hospital_id)
     end
     
