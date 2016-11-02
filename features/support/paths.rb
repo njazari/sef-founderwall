@@ -23,6 +23,8 @@ module NavigationHelpers
       donor_path(Donor.where(:first_name => $1.split[0], :last_name => $1.split[1]).pluck(:id)[0])
     when /^the admin page$/
       rails_admin_path
+    when /^the hospital page of admin$/
+      '/admin/hospital'
     when /^the individual dedication page for "(.*)" with dedication "(.*)"$/
       donor_dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
@@ -30,6 +32,7 @@ module NavigationHelpers
       errors_path
     when /^the sign in page$/
       new_user_session_path
+    when /^the hospital page of admin$/
     when /^the submit dedication page with donor id (.*)$/
 #      edit_hopsital_dedication_path($1, )
       '/'
