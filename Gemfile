@@ -5,6 +5,10 @@ ruby '2.3.0'    # Ruby version you're running
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Social Media links
+gem 'social-share-button'
+#Bootstrap. Read more: https://github.com/twbs/bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
