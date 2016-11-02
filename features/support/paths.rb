@@ -17,8 +17,8 @@ module NavigationHelpers
       '/'
     when /^the hospital page for "(.*)"$/
       hospital_path(Hospital.find_by_name($1))
-    when /^the dedication page for "(.*)" dedication "(.*)"$/
-      hospital_dedication_path(Hospital.find_by_name($1), Dedication.find($2))
+    when /^the dedication page for dedication (.*)$/
+      dedication_path(Dedication.find($1))
     when /^the donor page for "(.*)"$/
       donor_path(Donor.where(:first_name => $1.split[0], :last_name => $1.split[1]).pluck(:id)[0])
     when /^the admin page$/
@@ -26,8 +26,11 @@ module NavigationHelpers
     when /^the hospital page of admin$/
       '/admin/hospital'
     when /^the individual dedication page for "(.*)" with dedication "(.*)"$/
-      donor_dedication_path(Donor.where(:first_name => $1.split[0], 
+      dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
+    
+    when /^the edit page for dedication (.*)$/
+      edit_dedication_path(Dedication.find($1))
     when /^the error page$/
       errors_path
     when /^the sign in page$/

@@ -1,6 +1,8 @@
-%h1 Edit Dedication and Consent for Digital Wall of Founders
+// should only be accessible if (logged in?) donor has a donation without a dedication
 
-= form_tag dedication_path(@dedication), :method => :put do
+%h1 New Dedication and Consent for Digital Wall of Founders
+
+= form_tag hospital_dedication_path(@dedication.hospital_id, @dedication), :method => :put do
 
   %h2 Dedication
   = label :dedication, :dedication, 'Write a dedication for your donation'
