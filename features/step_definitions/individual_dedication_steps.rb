@@ -1,3 +1,3 @@
-Given(/^I confirm popup$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I should see the "([^"]*)" social media button$/) do |media_type|
+    expect(page).to have_css(".ssb-icon.ssb-#{media_type.downcase!}")
 end
