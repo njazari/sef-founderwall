@@ -24,9 +24,16 @@ Scenario: After submitting dedication and consent, I should see the dedication o
   And I press "Submit"
   Then I should be on the dedication page for dedication 1
   And I should see "Goodbye blindness!"
+  And I should not see "For the kids"
   
 Scenario: After submitting dedication and consent, I should see my dedication on my donor page 
   When I fill in "dedication" with "Goodbye blindness!"
   And I check "I want my dedication to appear on the Digital Wall of Founders"
   And I press "Submit"
   Then I should see "Goodbye blindness!"
+  
+Scenario: After revoking consent, I should not see my dedication on the Digital Wall of Founders
+  When I uncheck "I want my dedication to appear on the Digital Wall of Founders"
+  And I press "Submit"
+  And I go to the hospital page for "Hospital 1"
+  Then I should not see "For the kids"
