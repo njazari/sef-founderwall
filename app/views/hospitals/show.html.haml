@@ -40,10 +40,10 @@
     
 
 - ["Platinum", "Gold", "Silver"].each do |tier|
-    %a{:href => "##{tier}"} #{tier}
+    %a{:href => "##{tier}", :onclick => "jumpTo('"+ "#{tier}" + "_header');return false;"} #{tier}
     
 - ["Platinum", "Gold", "Silver"].each do |tier|
-    %h2{:id => "#{tier}"} #{tier}
+    %h2{:id => "#{tier}_header"} #{tier}
     - Dedication.where(:hospital => @hospital.id, :tier => tier, :status => true).each do |dedication|
         %div{:class => "dedication", :id => dedication.id} 
             = link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}",
