@@ -6,7 +6,9 @@ hospitals = [{:id => 1, :name => 'Sankara Rural Eye Hospital', :surgeries => 150
   ]
 
 hospitals.each do |hospital|
-  Hospital.create!(hospital)
+  if not Hospital.exists?(hospital[:id])
+    Hospital.create!(hospital)
+  end
 end
 
 donors = [{:id => 1, :first_name => 'Aaron', :last_name => 'Rowell', :email => 'AaronERowell@teleworm.us', :phone => '806-278-5037'},
@@ -22,7 +24,9 @@ donors = [{:id => 1, :first_name => 'Aaron', :last_name => 'Rowell', :email => '
   	 ]
 
 donors.each do |donor|
-  Donor.create!(donor)
+  if not Donor.exists?(donor[:id])
+    Donor.create!(donor)
+  end
 end
 
 dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, :hospital_id => 2, :donor_id => 6, :tier => 'Gold'},
@@ -40,5 +44,17 @@ dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, 
   	 ]
 
 dedications.each do |dedication|
-  Dedication.create!(dedication)
+  if not Dedication.exists?(dedication[:id])
+    Dedication.create!(dedication)
+  end
+end
+
+users = [{:id => 1, :email => 'admin@admin.com', :password => 'password', :admin => true},
+         {:id => 2, :email => 'user@user.com', :password => 'password', :admin => false}
+  ]
+  
+users.each do |user|
+  if not User.exists?(user[:id])
+    User.create!(user)
+  end
 end
