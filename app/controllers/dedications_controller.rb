@@ -17,6 +17,6 @@ class DedicationsController < ApplicationController
         @dedication.status = params[:dedication][:status]
         @dedication.save!
         flash[:notice] = "Thank you for submitting your dedication"
-        redirect_to donor_dedication_path(@dedication.hospital_id, @dedication)
+        redirect_to dedication_path(@dedication)
     end
 end
