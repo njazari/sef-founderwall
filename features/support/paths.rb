@@ -26,9 +26,9 @@ module NavigationHelpers
       donor_dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
     
-    when /^the submit dedication page with donor id (.*)$/
-#      edit_hopsital_dedication_path($1, )
-      '/'
+    when /^the edit page for dedication (.*)$/
+      @dedication = Dedication.find($1)
+      edit_donor_dedication_path(@dedication.donor_id, @dedication)
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
