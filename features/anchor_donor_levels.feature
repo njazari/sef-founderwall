@@ -4,13 +4,13 @@ Feature: As a user,
 
 Background:
   Given the following hospitals exist
-    | id | name | surgeries  | cost |
-    | 1  | Hospital 1 | 10 | 20000 |
+    | id | name | surgeries  | cost | status |
+    | 1  | Hospital 1 | 10 | 20000 | true |
     And the following donors exist
-    | id | first_name | last_name  | email | phone |
-    | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 |
-    | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | 
-    | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 |
+    | id | first_name | last_name  | email | phone | status |
+    | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 | true |
+    | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | true |
+    | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 | true |
     And the following dedications exist
     | id | tier | dedication  | hospital_id | donor_id | status |
     | 1  | Platinum | For the kids | 1 | 1 | true |

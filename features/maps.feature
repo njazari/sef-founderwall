@@ -6,9 +6,9 @@ Feature: Google Maps View of Hospitals
   Background:
     Given the wall is set up
     Given the following hospitals exist
-    | id | name | surgeries  | cost | lat | lng |
-    | 1  | Hospital 1 | 4 | 60000 | 33.33 | 88.66 |
-    | 2  | Hospital 2 | 10 | 20000 | 26.26 | 55.55 |
+    | id | name | surgeries  | cost | lat | lng | status |
+    | 1  | Hospital 1 | 4 | 60000 | 33.33 | 88.66 | true |
+    | 2  | Hospital 2 | 10 | 20000 | 26.26 | 55.55 | true |
 
     And I am on the hospital page for "Hospital 2"
     

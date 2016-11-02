@@ -13,8 +13,9 @@ Given(/^I create a hospital with name "([^"]*)", surgeries "([^"]*)", and cost "
   Hospital.create(:name => name, :surgeries => surgeries, :cost => cost)
 end
 
-Given(/^I delete a hospital with name "([^"]*)"$/) do |name|
-  Hospital.delete(Hospital.where(:name => name).pluck(:id)[0])
+Given(/^I hide a hospital with name "([^"]*)"$/) do |hospital_name|
+  h = Hospital.find_by(name: hospital_name)
+  h.update(status: false)
 end
 
 Given(/^I update a hospital with name "([^"]*)", to have surgeries "([^"]*)"$/) do |hospital_name, hospital_surgeries|
