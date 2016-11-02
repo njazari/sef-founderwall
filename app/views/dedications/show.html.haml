@@ -1,5 +1,5 @@
-%p= link_to "#{@dedication.hospital.name}", hospital_path(Hospital.find(@dedication.hospital_id))
-%p= link_to "#{@dedication.donor.first_name} #{@dedication.donor.last_name}", donor_path(Donor.find(@dedication.donor_id))
+%p= link_to "#{@dedication.id}", hospital_path(@hospital)
+%p= link_to "Edit", edit_dedication_path(@dedication.id)
 
 %ul#dedication_info
     %li
@@ -11,5 +11,7 @@
     %li
         Dedication:
         = @dedication.dedication
-        
+
 %p= social_share_button_tag()
+        
+// button_to(name = test, options = nil, html_options = nil, &block)
