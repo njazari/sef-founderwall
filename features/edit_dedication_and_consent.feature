@@ -22,7 +22,8 @@ Scenario: After submitting dedication and consent, I should see the dedication o
   When I fill in "dedication" with "Goodbye blindness!"
   And I check "I want my dedication to appear on the Digital Wall of Founders"
   And I press "Submit"
-  Then I should see "Goodbye blindness!"
+  Then I should be on the dedication page for dedication 1
+  And I should see "Goodbye blindness!"
   
 Scenario: After submitting dedication and consent, I should see my dedication on my donor page 
   When I fill in "dedication" with "Goodbye blindness!"

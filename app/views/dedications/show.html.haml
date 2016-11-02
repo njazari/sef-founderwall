@@ -2,7 +2,7 @@
 %h1 #{@dedication.donor.first_name} #{@dedication.donor.last_name}
 
 %p= link_to "#{@dedication.id}", hospital_path(@hospital)
-%p= link_to "Edit", edit_donor_dedication_path(@dedication.donor_id, @dedication.id)
+%p= link_to "Edit", edit_dedication_path(@dedication.id)
 
 %ul#dedication_info
     %li
