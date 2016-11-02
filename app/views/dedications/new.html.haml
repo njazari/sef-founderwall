@@ -1,0 +1,15 @@
+// should only be accessible if (logged in?) donor has a donation without a dedication
+
+%h1 New Dedication and Consent for Digital Wall of Founders
+
+= form_tag hospital_dedication_path(@dedication.hospital_id, @dedication), :method => :put do
+
+  %h2 Dedication
+  = label :dedication, :dedication, 'Write a dedication for your donation'
+  = text_field :dedication, 'dedication'
+
+  %h2 Digital Wall of Founders
+  = label :dedication, :status, 'I want my dedication to appear on the Digital Wall of Founders'
+  = check_box :dedication, 'status', {}, true, false
+
+  = submit_tag 'Submit'
