@@ -25,7 +25,6 @@ Feature: Display Individual Dedication
      
     And I am on the individual dedication page for "John Smith" with dedication "1"
     
-    
   Scenario: Seeing all information "John Smith" dedicates to "Hospital 1"
     Then I should see "John Smith"
     And I should see "Hospital 1"
@@ -41,3 +40,8 @@ Feature: Display Individual Dedication
      And I should see the "Facebook" social media button
      And I should see the "Email" social media button
      
+  Scenario: When I visit a hidden dedication I should see an error page
+     Given I am on the individual dedication page for "Tina Martinez" with dedication "3"
+     Then I should be on the errors page 
+
+    

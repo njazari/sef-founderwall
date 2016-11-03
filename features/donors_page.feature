@@ -12,7 +12,7 @@ Feature: List of Dedications for a Donor
     | id | first_name | last_name  | email | phone | status |
     | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 | true |
     | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | true |
-    | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 | true |
+    | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 | false |
     And the following dedications exist
     | id | tier | dedication  | hospital_id | donor_id | status |
     | 1  | Platinum | For the kids | 1 | 1 | true |
@@ -35,5 +35,9 @@ Feature: List of Dedications for a Donor
   Scenario: When I click on a dedication page, I should be taken to that dedication's page
     And I follow "view_2"
     Then I should be on the dedication page for dedication 2
+    
+  Scenario: When I visit a hidden dedication I should see an error page
+    Given I am on the donor page for "Tina Martinez" 
+    Then I should be on the errors page 
     
     
