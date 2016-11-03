@@ -4,11 +4,11 @@ Feature: As a donor,
 
 Background:    
   Given the following hospitals exist
-    | id | name       |
-    | 1  | Hospital 1 |
+    | id | name       | status |
+    | 1  | Hospital 1 | true   |
   And the following donors exist
-    | id | first_name | last_name  | email | phone |
-    | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 |
+    | id | first_name | last_name  | email | phone | status |
+    | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 | true |
   And the following dedications exist
     | id | tier     | dedication     | hospital_id | donor_id | status |
     | 1  | Platinum | For the kids   | 1           | 1        | true   |

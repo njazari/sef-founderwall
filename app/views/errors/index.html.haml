@@ -1,0 +1,9 @@
+%h1 Error
+
+%a You do not have admin credentials. 
+
+%div 
+= link_to "Home", root_path
+%div 
+= link_to "Sign Out", destroy_user_session_path, method: :delete
+

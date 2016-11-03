@@ -7,10 +7,10 @@ Feature: Display Main Hospital List
   Background:
     Given the wall is set up
     Given the following hospitals exist
-    | name        | city        | state | building_status   |
-    | Hospital 1  | Los Angeles | CA    | In Construction   |
-    | Hospital 2  | Berkeley    | CA    | Completed         |
-    | Hospital 3  | Seattle     | WA    | Completed         |
+    | name        | city        | state | building_status   | status | 
+    | Hospital 1  | Los Angeles | CA    | In Construction   | true   |
+    | Hospital 2  | Berkeley    | CA    | Completed         | true   |
+    | Hospital 3  | Seattle     | WA    | Completed         | true   |
 
 
   Scenario: Create hospital list page shown

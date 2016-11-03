@@ -21,13 +21,23 @@ module NavigationHelpers
       dedication_path(Dedication.find($1))
     when /^the donor page for "(.*)"$/
       donor_path(Donor.where(:first_name => $1.split[0], :last_name => $1.split[1]).pluck(:id)[0])
-      
+    when /^the admin page$/
+      rails_admin_path
+    when /^the hospital page of admin$/
+      '/admin/hospital'
     when /^the individual dedication page for "(.*)" with dedication "(.*)"$/
       dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
     
     when /^the edit page for dedication (.*)$/
       edit_dedication_path(Dedication.find($1))
+    when /^the error page$/
+      errors_path
+    when /^the sign in page$/
+      new_user_session_path
+    when /^the submit dedication page with donor id (.*)$/
+#      edit_hopsital_dedication_path($1, )
+      '/'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
