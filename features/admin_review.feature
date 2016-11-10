@@ -16,7 +16,7 @@ Feature: Review Dedications as Admin
     And the following dedications exist
     | id | tier | dedication  | hospital_id | donor_id | status | approved |
     | 1  | Platinum | For the kids | 1 | 1 | true | false |
-    | 2  | Gold | Inappropriate stuff | 1 | 2 | true | false | false |
+    | 2  | Gold | Inappropriate stuff | 1 | 2 | true | false |
     | 3  | Silver | | 1 | 3 | false | false |
     And the following users exist
     | id | email         | password | admin |

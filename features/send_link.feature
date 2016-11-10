@@ -24,7 +24,7 @@ Background:
 Scenario: make a new link from a user
   Given I sign in with email "foo@foo.com" and password "password"
   Given I am on the admin page
-  And I follow Donors
+  And I follow "Donors"
   And I check "bulk_ids_1"
   Then I press "Generate Link(s)"
   Then I should see "Generated Link:"
