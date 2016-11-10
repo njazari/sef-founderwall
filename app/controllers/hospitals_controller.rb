@@ -2,6 +2,7 @@ class HospitalsController < ApplicationController
     
     def index
         @hospitals = Hospital.where(:status => true)
+        @dedications = Dedication.all
         #byebug
     end
     

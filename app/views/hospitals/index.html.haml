@@ -11,3 +11,11 @@
   %p= "#{hospital.city}, #{hospital.state}"
   %p= "Building Status: #{hospital.building_status}"
   %br
+  
+- @dedications.each do |d|
+  %p= "#{d.hospital}"
+  %p= "#{d.tier}"
+  %p= "#{d.donor.first_name} #{d.donor.last_name}"
+  %p= "#{d.dedication}"
+  %p= "#{d.tier}"
+  %p= "#{d.date}"
