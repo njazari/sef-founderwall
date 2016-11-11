@@ -44,8 +44,8 @@ class Dedication < ActiveRecord::Base
         case sort_option.to_s
         when /^dedication_/
             order("LOWER(dedications.dedication) #{ direction }")
-        when /^donor_first_name_/
-            order("LOWER(dedications.donor.first_name) #{ direction }").include(:donor)
+        when /^donor_/
+            includes(:donor).order('donors.first_name ASC')
         else
             raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
         end
@@ -54,7 +54,7 @@ class Dedication < ActiveRecord::Base
     def self.options_for_sorted_by 
         [
             ['Dedication(a-z)', 'dedication_asc'],
-            ['Donor Name', 'donor_first_name_asc']
+            ['Donor Name', 'donor_asc']
         ]
     end
 end
