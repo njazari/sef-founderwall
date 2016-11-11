@@ -12,6 +12,26 @@
   %p= "Building Status: #{hospital.building_status}"
   %br
   
+/ /.row
+/ Related Projects Row
+.row
+  .col-lg-12
+    %h3.page-header Related Projects
+  .col-sm-3.col-xs-6
+    %a{:href => "#"}
+      %img.img-responsive.portfolio-item{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-sm-3.col-xs-6
+    %a{:href => "#"}
+      %img.img-responsive.portfolio-item{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-sm-3.col-xs-6
+    %a{:href => "#"}
+      %img.img-responsive.portfolio-item{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-sm-3.col-xs-6
+    %a{:href => "#"}
+      %img.img-responsive.portfolio-item{:alt => "", :src => "http://placehold.it/500x300"}/
+/ /.row
+
+  
 
 //   %p= "#{d.hospital}"
 //   %p= "#{d.tier}"
@@ -23,9 +43,15 @@
 = form_for_filterrific @filterrific do |f|
   %div
     Search
-    = f.text_field(:search_query,class: 'filterrific-periodically-observed')                                            
+    = f.text_field(:search_query,class: 'filterrific-periodically-observed')  
+  %div
+    Sorted by
+    = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
   %div
     = link_to('Reset filters', reset_filterrific_url,)          
   = render_filterrific_spinner
 
-= render(partial: 'dedications/list', locals: { dedications: @dedications })                                       
+= render(partial: 'dedications/list', locals: { dedications: @dedications })     
+
+%br
+%br
