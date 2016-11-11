@@ -12,10 +12,20 @@
   %p= "Building Status: #{hospital.building_status}"
   %br
   
-- @dedications.each do |d|
-  %p= "#{d.hospital}"
-  %p= "#{d.tier}"
-  %p= "#{d.donor.first_name} #{d.donor.last_name}"
-  %p= "#{d.dedication}"
-  %p= "#{d.tier}"
-  %p= "#{d.date}"
+
+//   %p= "#{d.hospital}"
+//   %p= "#{d.tier}"
+//   %p= "#{d.donor.first_name} #{d.donor.last_name}"
+//   %p= "#{d.dedication}"
+//   %p= "#{d.tier}"
+//   %p= "#{d.date}"
+
+= form_for_filterrific @filterrific do |f|
+  %div
+    Search
+    = f.text_field(:search_query,class: 'filterrific-periodically-observed')                                            
+  %div
+    = link_to('Reset filters', reset_filterrific_url,)          
+  = render_filterrific_spinner
+
+= render(partial: 'dedications/list', locals: { dedications: @dedications })                                       

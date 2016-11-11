@@ -2,8 +2,14 @@ class HospitalsController < ApplicationController
     
     def index
         @hospitals = Hospital.where(:status => true)
-        @dedications = Dedication.all
-        #byebug
+        @dedications = Dedication.where(:status => true)
+        @filterrific = initialize_filterrific(Dedication,params[:filterrific]) or return @dedications = @filterrific.find.page(params[:page])
+
+        respond_to do |format|
+            format.html
+            format.js
+    end
+
     end
     
     def show

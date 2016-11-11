@@ -4,4 +4,10 @@ class Dedication < ActiveRecord::Base
     after_initialize do 
         if new_record?
             if self.status.nil? then self.status = true end
-        end end end
+        end 
+    end 
+        
+    filterrific(default_filter_params: { sorted_by: 'created_at_desc' },
+        available_filters: [:sorted_by,
+                            :search_query])
+end

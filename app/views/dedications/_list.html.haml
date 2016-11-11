@@ -1,0 +1,16 @@
+#filterrific_results
+  %div
+    = page_entries_info dedications # provided by will_paginate
+  %table
+    %tr
+      %th Dedication
+      %th Status
+      %th hospital_id
+      %th donor_id
+    - dedications.each do |d|
+      %tr
+        %td= d.dedication
+        %td= d.status
+        %td= d.hospital_id
+        %td= d.donor_id
+= will_paginate dedications # provided by will_paginate
