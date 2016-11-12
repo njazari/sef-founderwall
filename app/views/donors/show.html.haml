@@ -3,11 +3,14 @@
 - ["Platinum", "Gold", "Silver"].each do |tier|
   - Dedication.where(:donor => @donor.id, :tier => tier, :status => true).each do |dedication|
     %div{:class => "dedication", :id => dedication.id} 
-      = link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
       .col-md-4.portfolio-item
-        %h3
-          %a{:href => "#"}= dedication.tier
-        %a{:href => "#"}
-          %img.img-responsive{:alt => "", :src => "http://placehold.it/700x400"}/
-        %p= dedication.dedication
-        %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
+        .panel.panel-default
+          .panel-heading
+            %h4= dedication.tier
+          .panel-body
+            %p= dedication.dedication
+            %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+            %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
+        
+
+   
