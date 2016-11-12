@@ -1,3 +1,5 @@
+
+        
 #filterrific_results    
   .well.well-small
     .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
@@ -8,17 +10,39 @@
       = render_filterrific_spinner
   
   - dedications.each do |d|
-
-    .col-sm-6.col-md-4
-      .thumbnail
-        %h3= d.donor.first_name + " " +  d.donor.last_name
-        %p= d.dedication
-        %p= d.hospital.name
-        .btn.btn-primary{:href => "#", :role => "button"} See More
-
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h4= d.donor.first_name + " " +  d.donor.last_name
+        .panel-body
+          %p= d.dedication
+          %p= d.hospital.name
+          .btn.btn-default{:href => "#", :role => "button"} See More
   .text-center
     .pagination
       = will_paginate dedications
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+        
     
 
  
