@@ -1,6 +1,6 @@
 class HospitalsController < ApplicationController
     
-    WillPaginate.per_page = 10
+    WillPaginate.per_page = 9
     
     def index
         @hospitals = Hospital.where(:status => true)

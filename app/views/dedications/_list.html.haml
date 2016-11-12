@@ -1,17 +1,41 @@
-#filterrific_results
-  %div
-    = page_entries_info dedications
+#filterrific_results    
+  .well.well-small
+    .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
+      = link_to "Reset filters", reset_filterrific_url, :class => 'btn btn-default btn-sm'
+    .chardin_box{ :'data-position' => 'bottom', :'data-intro' => "will_paginate's entries info works as expected." }
+      = page_entries_info dedications, :model => 'dedication'
+    .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
+      = render_filterrific_spinner
+  
+  - dedications.each do |d|
+
+    .col-sm-6.col-md-4
+      .thumbnail
+        %h3= d.donor.first_name + " " +  d.donor.last_name
+        %p= d.dedication
+        %p= d.hospital.name
+        .btn.btn-primary{:href => "#", :role => "button"} See More
+
+  .text-center
+    .pagination
+      = will_paginate dedications
     
-  %table
-    %tr
-      %th Donor
-      %th Dedication
-      %th Hosptial
-    - dedications.each do |d|
-      %tr
-        %td= d.donor.first_name + " " +  d.donor.last_name
-        %td= d.dedication
-        %td= d.hospital.name
-        
-.pagination
-  = will_paginate dedications
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
