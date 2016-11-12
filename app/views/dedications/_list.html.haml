@@ -4,15 +4,14 @@
     
   %table
     %tr
+      %th Donor
       %th Dedication
-      %th Status
-      %th hospital_id
-      %th donor name
+      %th Hosptial
     - dedications.each do |d|
       %tr
+        %td= d.donor.first_name + " " +  d.donor.last_name
         %td= d.dedication
-        %td= d.status
-        %td= d.hospital_id
-        %td= d.donor.first_name
+        %td= d.hospital.name
         
-= will_paginate dedications
+.pagination
+  = will_paginate dedications

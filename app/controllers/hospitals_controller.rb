@@ -1,5 +1,7 @@
 class HospitalsController < ApplicationController
     
+    WillPaginate.per_page = 10
+    
     def index
         @hospitals = Hospital.where(:status => true)
         @dedications = Dedication.where(:status => true)
@@ -9,6 +11,7 @@ class HospitalsController < ApplicationController
             params[:filterrific], 
             select_options: {
             sorted_by: Dedication.options_for_sorted_by,
+            with_country_id: Hospital.options_for_select,
             }, 
             default_filter_params: {},
         ) or return 

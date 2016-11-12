@@ -9,7 +9,7 @@ class Dedication < ActiveRecord::Base
     end 
         
     filterrific(
-        available_filters: [:sorted_by,
+        available_filters: [:sorted_by, :with_hospital_id,
                             :search_query])
                             
     belongs_to :hospital
@@ -17,26 +17,26 @@ class Dedication < ActiveRecord::Base
     
     # scope :search_query, lambda { |query|
 
-    #   return nil  if query.blank?
+    #   return nil if query.blank?
     
-    #   # condition query, parse into individual keywords
     #   terms = query.downcase.split(/\s+/)
     
-    #   # replace "*" with "%" for wildcard searches,
-    #   # append '%', remove duplicate '%'s
     #   terms = terms.map { |e|
     #     (e.gsub('*', '%') + '%').gsub(/%+/, '%')
     #   }
-    #   # configure number of OR conditions for provision
-    #   # of interpolation arguments. Adjust this if you
-    #   # change the number of OR conditions.
+      
     #   num_or_conds = 2
     #   where(
     #     terms.map { |term|
-    #       "(LOWER(students.first_name) LIKE ? OR LOWER(students.last_name) LIKE ?)"
+    #       "(LOWER(donors.first_name.first_name) LIKE ? OR LOWER(donors.first_name.last_name) LIKE ?)"
     #     }.join(' AND '),
     #     *terms.map { |e| [e] * num_or_conds }.flatten
     #   )
+    # }
+    
+    
+    # scope :with_hospital_id, lambda { |hospital_ids|
+    #     where(dedications.hospital_id: [*hospital_ids])
     # }
     
     scope :sorted_by, lambda { |sort_option|
@@ -46,6 +46,8 @@ class Dedication < ActiveRecord::Base
             order("LOWER(dedications.dedication) #{ direction }")
         when /^donor_/
             includes(:donor).order('donors.first_name ASC')
+        when /^hospital_/
+            includes(:hospital).order('hospitals.name ASC')
         else
             raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
         end
@@ -53,8 +55,9 @@ class Dedication < ActiveRecord::Base
     
     def self.options_for_sorted_by 
         [
-            ['Dedication(a-z)', 'dedication_asc'],
-            ['Donor Name', 'donor_asc']
+            ['Dedication', 'dedication_asc'],
+            ['Donor', 'donor_asc'], 
+            ['Hospital', 'hospital_asc']
         ]
     end
 end

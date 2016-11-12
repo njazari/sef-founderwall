@@ -13,8 +13,6 @@
   %br
   
 
-  
-
 //   %p= "#{d.hospital}"
 //   %p= "#{d.tier}"
 //   %p= "#{d.donor.first_name} #{d.donor.last_name}"
@@ -26,6 +24,9 @@
   %div
     Search
     = f.text_field(:search_query,class: 'filterrific-periodically-observed')  
+  // %div
+  //   Hospital
+  //   = f.select(:with_hospital_id, @filterrific.select_options[:with_hospital_id], { include_blank: '- Any -' })
   %div
     Sorted by
     = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
