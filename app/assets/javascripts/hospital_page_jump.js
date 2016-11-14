@@ -1,3 +1,3 @@
-function jumpTo(id) {
-    document.getElementById(id).scrollIntoView();
-}
+$(document).ready( function() {
+     $(".jump").click(scrollIntoView());
+});

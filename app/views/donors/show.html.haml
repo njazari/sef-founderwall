@@ -1,6 +1,6 @@
 %h1 #{@donor.first_name} #{@donor.last_name}
 
-- ["Platinum", "Gold", "Silver"].each do |tier|
+- @tiers.each do |tier|
     - Dedication.where(:donor => @donor.id, :tier => tier, :status => true).each do |dedication|
         %div{:class => "dedication", :id => dedication.id} 
             = link_to "#{dedication.hospital.name}",

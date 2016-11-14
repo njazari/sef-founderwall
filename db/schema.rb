@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102221818) do
+ActiveRecord::Schema.define(version: 20161114060241) do
 
   create_table "dedications", force: :cascade do |t|
     t.string  "dedication"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20161102221818) do
     t.integer "hospital_id"
     t.integer "donor_id"
     t.string  "tier"
-    t.string  "photo"
+    t.boolean "published"
   end
 
   create_table "donors", force: :cascade do |t|
