@@ -8,7 +8,7 @@ class Dedication < ActiveRecord::Base
     end
     
     def self.tiers
-        ['Platinum', 'Gold', 'Silver']
+        ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
     end
 
 end

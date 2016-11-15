@@ -1,3 +1,5 @@
+= javascript_include_tag "application.js"
+
 %h1 #{@hospital.name}
 
 %ul#hospital_info
@@ -40,7 +42,7 @@
     
 
 - @tiers.each do |tier|
-    %a{:href => "##{tier}", :class => "jump"} #{tier}
+    %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
     
 - @tiers.each do |tier|
     %h2{:id => "#{tier}_header"} #{tier}
