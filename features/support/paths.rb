@@ -35,6 +35,8 @@ module NavigationHelpers
       errors_path
     when /^the sign in page$/
       new_user_session_path
+    when /^the sign up page$/
+      new_user_registration_path
     when /^the submit dedication page with donor id (.*)$/
 #      edit_hopsital_dedication_path($1, )
       '/'
