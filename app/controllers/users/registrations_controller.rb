@@ -4,8 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
-     super
      @donor = Donor.find(params[:donor_id])
+     super
    end
 
   # POST /resource

@@ -3,10 +3,10 @@
 <%= form_for(resource, as: resource_name,  url: registration_path(resource), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   
-  <%= f.fields_for :donor do |donor_f| %>
+  <%= f.fields_for :donor, @donor do |donor_f| %>
     <div class="field">
       <%= donor_f.label :first_name %><br />
-      <%= donor_f.text_field :first_name, autofocus: true %>
+      <%= donor_f.text_field :first_name %>
     </div>  
     
     <div class="field">
@@ -26,7 +26,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", autofocus: true %>
   </div>
 
   <div class="field">
