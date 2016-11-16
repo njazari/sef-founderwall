@@ -44,6 +44,7 @@ class DedicationsController < ApplicationController
         if params[:publish]
             hospital = Hospital.find(@dedication.hospital_id)
             flash[:notice] = "Your dedication has been published. Go to #{hospital.name}'s page to see it on the Digital Wall of Founders!"
+        end
         redirect_to dedication_path(@dedication)
     end
         
