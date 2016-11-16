@@ -38,6 +38,16 @@ class DedicationsController < ApplicationController
     def new
     end
     
+    def create
+        @dedication = Dedication.new(dedication => params[:dedication][:dedication], 
+                                     status => params[:dedication][:status])
+        if params[:publish]
+            hospital = Hospital.find(@dedication.hospital_id)
+            flash[:notice] = "Your dedication has been published. Go to #{hospital.name}'s page to see it on the Digital Wall of Founders!"
+        redirect_to dedication_path(@dedication)
+    end
+        
+    
     def edit
         @dedication = Dedication.find(params[:id])
     end
@@ -47,8 +57,9 @@ class DedicationsController < ApplicationController
         @dedication.dedication = params[:dedication][:dedication]
         @dedication.status = params[:dedication][:status]
         if parms[:publish]
-            flash[:notice] = "Your dedication has been published."
             @dedication.publish = true
+            hospital = Hospital.find(@dedication.hospital_id)
+            flash[:notice] = "Your dedication has been published. Go to #{hospital.name}'s page to see it on the Digital Wall of Founders!"
         end
         @dedication.save!
         if @dedication.status

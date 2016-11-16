@@ -48,14 +48,14 @@
             %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
 .well.well-small    
     .nav.nav-tabs.nav-justified
-        - ["Platinum", "Gold", "Silver"].each do |tier|
+        - @tiers.each do |tier|
             .btn.btn-default
-                %a{:href => "##{tier}", :onclick => "jumpTo('"+ "#{tier}" + "_header');return false;"} #{tier}
+                %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
    
-- ["Platinum", "Gold", "Silver"].each do |tier|
+- @tiers.each do |tier|
     .well.well-small
         %h2{:id => "#{tier}_header"} #{tier}
-        - Dedication.where(:hospital => @hospital.id, :tier => tier, :status => true).each do |dedication|
+        - @hospital_dedications_by_tier[tier].each do |dedication|
             %div{:class => "dedication", :id => dedication.id} 
                 .row
                     .col-md-4

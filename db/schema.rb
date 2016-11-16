@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20161114060241) do
     t.integer "hospital_id"
     t.integer "donor_id"
     t.string  "tier"
-    t.string  "date"
     t.boolean "published"
+    t.string  "date"
   end
 
   create_table "donors", force: :cascade do |t|

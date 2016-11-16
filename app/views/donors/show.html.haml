@@ -1,7 +1,7 @@
 %h1 #{@donor.first_name} #{@donor.last_name}
 
-- ["Platinum", "Gold", "Silver"].each do |tier|
-  - Dedication.where(:donor => @donor.id, :tier => tier, :status => true).each do |dedication|
+- @tiers.each do |tier|
+  - @donor_dedications_by_tier[tier].each do |dedication|
     %div{:class => "dedication", :id => dedication.id} 
       .col-md-4.portfolio-item
         .panel.panel-default
@@ -11,6 +11,3 @@
             %p= dedication.dedication
             %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
             %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-        
-
-   
