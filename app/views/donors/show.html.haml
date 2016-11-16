@@ -41,7 +41,5 @@
             %ul
                 %li Tier: #{dedication.tier}
             = link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-            - if !dedication.published
-                = link_to "Edit", edit_dedication_path(dedication.id)
-            
->>>>>>> separated blank dedications on donor page, removed edit button if published
+            = link_to "Edit", edit_dedication_path(dedication.id)
+            >>>>>>> separated blank dedications on donor page, removed edit button if published
