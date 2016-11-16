@@ -31,9 +31,9 @@
             %br
             %br
 
-- if !@donor_blank_dedications.empty?
+- if !@donor_new_dedications.empty?
     %p You can write dedications for your following donations:
-    - @donor_blank_dedications.each do |dedication|
+    - @donor_new_dedications.each do |dedication|
         %div{:class => "dedication", :id => dedication.id} 
             = link_to "#{dedication.hospital.name}",
                       hospital_path(Hospital.find(dedication.hospital_id))
