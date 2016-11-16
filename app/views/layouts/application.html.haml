@@ -19,20 +19,17 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a= link_to "Dedications", "/"
+              %a= link_to "Dedications", root_path
             %li
-              %a= link_to "Hospitals", "/"
+              %a= link_to "Hospitals", hospitals_path
             %li
               %a= link_to "Contact Admin", "/"
             %li
               %a= link_to "Sign Up", new_user_registration_path
             %li
               %a= link_to "Log In", new_user_session_path
-
-              
     .container
       = yield
-      
       %footer
         .row
           .col-lg-12.text-center
