@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Sakanra Eye Foundation - Wall of Founder
+    %title Sankara Eye Foundation - Wall of Founders
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -15,13 +15,13 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "/"} Wall of Founder
+          %a.navbar-brand{:href => "/"} Wall of Founders
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a= link_to "Dedications", root_path
+              %a= link_to "Dedications", dedications_path
             %li
-              %a= link_to "Hospitals", hospitals_path
+              %a= link_to "Hospitals", root_path
             %li
               %a= link_to "Contact Admin", "/"
             %li

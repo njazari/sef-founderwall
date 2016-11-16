@@ -19,7 +19,7 @@
                     = @dedication.dedication
         .column.sidebar
             // %p This is the Sidebar.
-            %p= social_share_button_tag(:quote => "#SankaraEyeFoundation")
+            %p= social_share_button_tag("A donation to #{@hospital.name} by #{@dedication.donor.first_name} #{@dedication.donor.last_name} #SankaraEyeFoundation")
 
         .column.side-nav
             // %p This is the Navigation.
