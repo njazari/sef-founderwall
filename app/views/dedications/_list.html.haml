@@ -15,12 +15,11 @@
         .panel-body
           %p= d.dedication
           %p= d.hospital.name
-          .btn.btn-default{:href => "#", :role => "button"} See More
+          .btn.btn-default
+            = button_to "See Dedication", donor_path(Donor.find(d.donor_id)), :method => :get
   .text-center
     .pagination
       = will_paginate dedications
-
-  
 
  
 
