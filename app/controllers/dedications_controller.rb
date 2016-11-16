@@ -46,9 +46,12 @@ class DedicationsController < ApplicationController
         @dedication = Dedication.find(params[:id])
         @dedication.dedication = params[:dedication][:dedication]
         @dedication.status = params[:dedication][:status]
+        if parms[:publish]
+            flash[:notice] = "Your dedication has been published."
+            @dedication.publish = true
+        end
         @dedication.save!
-        flash[:notice] = "Thank you for submitting your dedication"
-        if @dedication.status == true
+        if @dedication.status
             redirect_to dedication_path(@dedication)
         else 
             redirect_to root_path

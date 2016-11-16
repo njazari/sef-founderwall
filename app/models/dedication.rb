@@ -6,7 +6,11 @@ class Dedication < ActiveRecord::Base
         if new_record?
             if self.status.nil? then self.status = true end
         end 
-    end 
+    end
+    
+    def self.tiers
+        ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
+    end
         
     filterrific(
         available_filters: [:sorted_by, :with_hospital_id,
