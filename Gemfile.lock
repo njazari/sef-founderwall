@@ -134,6 +134,7 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     fattr (2.3.0)
+    filterrific (2.1.1)
     flay (2.8.1)
       erubis (~> 2.7.0)
       path_expander (~> 1.0)
@@ -364,6 +365,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.1.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -382,6 +384,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  filterrific
   haml
   jasmine-rails
   jbuilder (~> 2.0)
@@ -400,6 +403,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.3.0p0

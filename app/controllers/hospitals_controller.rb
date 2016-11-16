@@ -2,7 +2,6 @@ class HospitalsController < ApplicationController
     
     def index
         @hospitals = Hospital.where(:status => true)
-        #byebug
     end
     
     def show
