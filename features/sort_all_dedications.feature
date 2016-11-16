@@ -10,6 +10,7 @@ Feature: Display Individual Dedication
     | id | name       | surgeries  | cost  | status |
     | 1  | Hospital 1 | 10         | 20000 | true   |
     | 2  | Hospital 2 | 20         | 40000 | true   |
+    | 3  | Hospital 3 | 20         | 40000 | true   |
     
      And the following donors exist
     | id | first_name | last_name | email            | phone         | status |
@@ -26,21 +27,14 @@ Feature: Display Individual Dedication
     And I am on the individual dedication page for "John Smith" with dedication "1"
     
   Scenario: Sort dedications in alphabetical order
-    Given I am on the home page
+    Given I am on the all dedications page
+    When I slect "Dedication" from "filterrific_sorted_by"
     Then I should see "For the kids" before "For the adults"
     And I should see "For the kids" before "Go Sankara!"
 
   Scenario: Sort dedications by donor names
-    Given I am on the home page
+    Given I am on the all dedications page
+    When I slect "Donor" from "filterrific_sorted_by"
     Then I should see "John Smith" before "John Williams"
     And I should see "John Smith" before "Tina Martinez"
     And I should see "John Williams" before "Tina Martinez"
-
-  Scenario: Sort dedications by most recent
-    Given I am on the home page
-    Then I should see dedication with id "1" before dedication with id "2"
-    And I should see dedication with id "1" before dedication with id "3"
-    And I should see dedication with id "2" before dedication with id "3"
-
-
-    

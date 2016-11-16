@@ -30,6 +30,9 @@ gem 'rails_admin'
 gem 'mail_form'
 gem 'simple_form'
 gem "figaro"
+# Filter, search, and sort ActiveRecord lists
+gem 'filterrific'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

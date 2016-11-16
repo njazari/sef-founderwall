@@ -1,19 +1,16 @@
 %h1 #{@donor.first_name} #{@donor.last_name}
 
-- @tiers.each do |tier|
-    - Dedication.where(:donor => @donor.id, :tier => tier, :status => true).each do |dedication|
-        %div{:class => "dedication", :id => dedication.id} 
-            = link_to "#{dedication.hospital.name}",
-                      hospital_path(Hospital.find(dedication.hospital_id))
-                  
-            %ul#dedication
-                %li 
-                    Tier:
-                    = dedication.tier
-                %li
-                    Dedication:
-                    = dedication.dedication
-            = link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-            %br
-            %br
+- ["Platinum", "Gold", "Silver"].each do |tier|
+  - Dedication.where(:donor => @donor.id, :tier => tier, :status => true).each do |dedication|
+    %div{:class => "dedication", :id => dedication.id} 
+      .col-md-4.portfolio-item
+        .panel.panel-default
+          .panel-heading
+            %h4= dedication.tier
+          .panel-body
+            %p= dedication.dedication
+            %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+            %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
+        
 
+   

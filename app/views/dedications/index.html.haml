@@ -1,0 +1,17 @@
+.well
+  = form_for_filterrific @filterrific do |f|
+    .row
+      .col-md-4
+        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+          %label Search
+          = f.text_field :search_query,
+                         :class => 'filterrific-periodically-observed form-control'
+      .col-md-4
+        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Change the sorting.' }
+          %label Sorted by
+          = f.select :sorted_by,
+                     @filterrific.select_options[:sorted_by],{},{ :class => 'form-control' }
+
+#results
+  = render :partial => 'dedications/list',
+           :locals => { :dedications => @dedications }

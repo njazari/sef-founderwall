@@ -16,7 +16,8 @@ Feature: Display Main Hospital List
   Scenario: Create hospital list page shown
     Given I am on the home page
     Then I should see "Wall of Founders"
-    And I should see "Search"
+    And I should see "Log In"
+    And I should see "Sign Up"
     
   Scenario: All hospitals shown
     Given I am on the home page

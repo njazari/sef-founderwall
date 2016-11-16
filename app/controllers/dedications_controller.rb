@@ -1,4 +1,7 @@
 class DedicationsController < ApplicationController
+    
+    WillPaginate.per_page = 9
+    
     def show
         @dedication = Dedication.find(params[:id])
         if @dedication.status == false
@@ -6,6 +9,30 @@ class DedicationsController < ApplicationController
             redirect_to errors_path
         end
         @hospital = Hospital.find(@dedication.hospital_id)
+    end
+    
+    def index
+        @dedications = Dedication.where(:status => true)
+        
+        @filterrific = initialize_filterrific(
+            Dedication, 
+            params[:filterrific], 
+            select_options: {
+            sorted_by: Dedication.options_for_sorted_by,
+            with_country_id: Hospital.options_for_select,
+            }, 
+            default_filter_params: {},
+        ) or return 
+        @dedications = @filterrific.find.page(params[:page])
+        
+        respond_to do |format|
+            format.html
+            format.js
+        end
+        
+    rescue ActiveRecord::RecordNotFound => e
+        puts "Had to reset filterrific params: #{ e.message }"
+        redirect_to(reset_filterrific_url(format: :html)) and return
     end
     
     def new

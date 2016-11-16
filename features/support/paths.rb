@@ -28,7 +28,8 @@ module NavigationHelpers
     when /^the individual dedication page for "(.*)" with dedication "(.*)"$/
       dedication_path(Donor.where(:first_name => $1.split[0], 
       :last_name => $1.split[1]).pluck(:id)[0], Dedication.find($2))
-    
+    when /^the all dedications page$/
+      dedications_path
     when /^the edit page for dedication (.*)$/
       edit_dedication_path(Dedication.find($1))
     when /^the error page$/

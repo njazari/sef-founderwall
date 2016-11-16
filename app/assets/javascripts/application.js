@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require social-share-button
+//= require filterrific/filterrific-jquery
 //= require_tree .
