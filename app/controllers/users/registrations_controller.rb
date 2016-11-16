@@ -4,8 +4,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
+    if params[:donor_id].blank?
+     flash[:notice] = "You must be a donor to create an account."
+     redirect_to root_path
+    else
      @donor = Donor.find(params[:donor_id])
      super
+    end
    end
 
   # POST /resource
