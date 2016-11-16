@@ -24,4 +24,5 @@ class Donor < ActiveRecord::Base
     def new_dedications
         Dedication.where(:donor => self.id, :dedication => [nil, '']).where.not(:published => true)
     end
+    
 end

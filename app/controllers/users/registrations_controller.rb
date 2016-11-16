@@ -10,8 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+     @donor = Donor.find(params[:donor_id])
+     User.create!(:donor => @donor)
      super
-     User.create!()
    end
 
   # GET /resource/edit
