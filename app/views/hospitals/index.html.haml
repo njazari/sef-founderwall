@@ -17,8 +17,9 @@
 - @hospitals.each do |hospital|
   .row
     .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
+      %a{:href => hospital_path(hospital)}
+        = image_tag "sankara.png", class: "img-responsive img-thumbnail"
+          
     .col-md-5
       %h3= "#{hospital.name}"
       %h4= "#{hospital.city}, #{hospital.state}"
