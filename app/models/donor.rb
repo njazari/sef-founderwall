@@ -21,7 +21,7 @@ class Donor < ActiveRecord::Base
         dbt
     end
     
-    def blank_dedications
-        Dedication.where(:donor => self.id, :dedication => [nil, ''])
+    def new_dedications
+        Dedication.where(:donor => self.id, :dedication => [nil, '']).where.not(:published => true)
     end
 end

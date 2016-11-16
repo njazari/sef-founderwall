@@ -12,7 +12,7 @@ class Hospital < ActiveRecord::Base
     def dedications_by_tier
         dbt = Hash.new
         Dedication.tiers.each do |tier|
-            dbt[tier] = Dedication.where(:hospital => self.id, :tier => tier, :status => true) 
+            dbt[tier] = Dedication.where(:hospital => self.id, :tier => tier, :status => true)
         end
         dbt
     end
