@@ -16,12 +16,12 @@ class Donor < ActiveRecord::Base
     def nonempty_dedications_by_tier
         dbt = Hash.new
         Dedication.tiers.each do |tier|
-            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true) 
+            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true).where.not(:dedication => [nil, ''])
         end
         dbt
     end
     
     def blank_dedications
-        Dedication.where(:donor => self.id, :dedication => nil)
+        Dedication.where(:donor => self.id, :dedication => [nil, ''])
     end
 end

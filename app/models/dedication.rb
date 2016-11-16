@@ -11,6 +11,7 @@ class Dedication < ActiveRecord::Base
     def self.tiers
         ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
     end
+<<<<<<< a7fbd61d42227290327c2cd0649f166742b0e4d2
         
     filterrific(
         available_filters: [:sorted_by, :with_hospital_id,
@@ -41,4 +42,7 @@ class Dedication < ActiveRecord::Base
             ['Hospital', 'hospital_asc']
         ]
     end
+=======
+    
+>>>>>>> separated blank dedications on donor page, removed edit button if published
 end
