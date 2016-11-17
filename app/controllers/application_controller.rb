@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
     if resource.admin?
       rails_admin_path
     else
-      flash[:error] = "admin"
-      errors_path
+      donor_path(resource.donor)
     end
   end
 end

@@ -2,7 +2,7 @@
 
 %h1 New Dedication and Consent for Digital Wall of Founders
 
-= form_tag hospital_dedication_path(@dedication.hospital_id, @dedication), :method => :put do
+= form_tag dedication_path(@dedication), :method => :put do
 
   %h2 Dedication
   = label :dedication, :dedication, 'Write a dedication for your donation'
@@ -12,4 +12,5 @@
   = label :dedication, :status, 'I want my dedication to appear on the Digital Wall of Founders'
   = check_box :dedication, 'status', {}, true, false
 
-  = submit_tag 'Submit'
+  = submit_tag 'Save'
+  = submit_tag 'Publish', name: 'publish'
