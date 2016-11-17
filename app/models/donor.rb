@@ -15,6 +15,9 @@ class Donor < ActiveRecord::Base
     
     def dedications_by_tier(published)
         dbt = Hash.new
+        if !published
+            published = [false, nil]
+        end
         Dedication.tiers.each do |tier|
             dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true, :published => published)
         end
