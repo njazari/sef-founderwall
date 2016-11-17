@@ -9,10 +9,10 @@ class Hospital < ActiveRecord::Base
     after_initialize do 
         if new_record? then if self.status.nil? then self.status = true end end end
             
-    def dedications_by_tier
+    def published_dedications_by_tier
         dbt = Hash.new
         Dedication.tiers.each do |tier|
-            dbt[tier] = Dedication.where(:hospital => self.id, :tier => tier, :status => true)
+            dbt[tier] = Dedication.where(:hospital => self.id, :tier => tier, :status => true, :published => true)
         end
         dbt
     end

@@ -55,7 +55,7 @@
 - @tiers.each do |tier|
     .well.well-small
         %h2{:id => "#{tier}_header"} #{tier}
-        - @hospital_dedications_by_tier[tier].each do |dedication|
+        - @hospital_published_dedications_by_tier[tier].each do |dedication|
             %div{:class => "dedication", :id => dedication.id} 
                 .row
                     .col-md-4
