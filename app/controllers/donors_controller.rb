@@ -2,8 +2,8 @@ class DonorsController < ApplicationController
     def show
         @donor = Donor.find(params[:id])
         @tiers = Dedication.tiers
-        @donor_nonempty_dedications_by_tier = @donor.nonempty_dedications_by_tier
-        @donor_new_dedications = @donor.new_dedications
+        @donor_published_dedications_by_tier = @donor.published_dedications_by_tier
+        @donor_unpublished_dedications_by_tier = @donor.unpublished_dedications_by_tier
         if current_user
             @donor_logged_in = current_user.donor == @donor
         else

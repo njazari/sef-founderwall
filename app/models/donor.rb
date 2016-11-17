@@ -13,16 +13,20 @@ class Donor < ActiveRecord::Base
         end
     end 
     
-    def nonempty_dedications_by_tier
+    def published_dedications_by_tier
         dbt = Hash.new
         Dedication.tiers.each do |tier|
-            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true).where.not(:dedication => [nil, ''])
+            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true, :published => true)
         end
         dbt
     end
     
-    def new_dedications
-        Dedication.where(:donor => self.id, :dedication => [nil, '']).where.not(:published => true)
-    end
+    def unpublished_dedications_by_tier
+        dbt = Hash.new
+        Dedication.tiers.each do |tier|
+            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :published => false)
+        end
+        dbt
+    end   
     
 end
