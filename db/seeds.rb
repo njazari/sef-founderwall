@@ -35,17 +35,17 @@ donors.each do |donor|
   end
 end
 
-dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, :hospital_id => 2, :donor_id => 6, :tier => 'Gold'},
-            {:id => 2, :dedication => 'For the kids', :status => true, :hospital_id => 2, :donor_id => 1, :tier => 'Platinum'},
-            {:id => 3, :dedication => 'Dedicated to my family', :status => true, :hospital_id => 2, :donor_id => 3, :tier => 'Silver'},
-            {:id => 4, :dedication => 'Keep up the good work', :status => true, :hospital_id => 1, :donor_id => 2, :tier => 'Gold'},
-            {:id => 5, :dedication => '20/20 for all', :status => true, :hospital_id => 1, :donor_id => 4, :tier => 'Gold'},
+dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, :hospital_id => 2, :donor_id => 6, :tier => 'Gold', :published => true},
+            {:id => 2, :dedication => 'For the kids', :status => true, :hospital_id => 2, :donor_id => 1, :tier => 'Platinum', :published => true},
+            {:id => 3, :dedication => 'Dedicated to my family', :status => true, :hospital_id => 2, :donor_id => 3, :tier => 'Silver', :published => true},
+            {:id => 4, :dedication => 'Keep up the good work', :status => true, :hospital_id => 1, :donor_id => 2, :tier => 'Gold', :published => true},
+            {:id => 5, :dedication => '20/20 for all', :status => true, :hospital_id => 1, :donor_id => 4, :tier => 'Gold', :published => true},
             {:id => 6, :dedication => 'Go Sankara!', :status => true, :hospital_id => 3, :donor_id => 5, :tier => "Platinum"},
             {:id => 7, :dedication => 'Keep it up!', :status => true, :hospital_id => 3, :donor_id => 1, :tier => "Silver"},
             {:id => 8, :dedication => 'My favorite charity!', :status => true, :hospital_id => 4, :donor_id => 7, :tier => "Gold"},
             {:id => 9, :dedication => 'Happy to help a great cause', :status => true, :hospital_id => 5, :donor_id => 8, :tier => "Platinum"},
             {:id => 10, :dedication => 'Keep funding', :status => true, :hospital_id => 4, :donor_id => 9, :tier => "Silver"},
-            {:id => 11, :dedication => 'I love Sankara', :status => false, :hospital_id => 1, :donor_id => 8, :tier => "Platinum"},
+            {:id => 11, :dedication => 'I love Sankara', :status => false, :hospital_id => 1, :donor_id => 8, :tier => "Platinum", :published => true},
             {:id => 12, :dedication => 'I hate blindness!', :status => true, :hospital_id => 5, :donor_id => 10, :tier => "Gold"},
             {:id => 13, :hospital_id => 1, :donor_id => 2, :tier => "Silver"}
   	 ]
