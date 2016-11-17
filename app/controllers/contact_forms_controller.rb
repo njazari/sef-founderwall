@@ -2,6 +2,10 @@ class ContactFormsController < ApplicationController
     def new
       @contact_form = ContactForm.new
     end
+    
+    def index
+      redirect_to  new_contact_form_path
+    end
 
     def create
       begin

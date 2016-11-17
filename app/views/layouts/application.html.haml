@@ -23,7 +23,7 @@
             %li
               %a= link_to "Hospitals", root_path
             %li
-              %a= link_to "Contact Admin", new_contact_form_path
+              %a= link_to "Contact", new_contact_form_path
             - if current_user != nil and current_user.admin == true
               %li 
                 %a= link_to "Admin Portal", rails_admin_path

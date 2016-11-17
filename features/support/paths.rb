@@ -41,6 +41,8 @@ module NavigationHelpers
     when /^the submit dedication page with donor id (.*)$/
 #      edit_hopsital_dedication_path($1, )
       '/'
+    when /^the new contact page$/
+      new_contact_form_path
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
