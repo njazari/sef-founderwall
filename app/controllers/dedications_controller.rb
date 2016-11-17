@@ -4,6 +4,11 @@ class DedicationsController < ApplicationController
     
     def show
         @dedication = Dedication.find(params[:id])
+        if current_user
+            @donor_logged_in = current_user.donor == @dedication.donor
+        else
+            @donor_logged_in = false
+        end
         if @dedication.status == false
             flash[:error] = "dedication"
             redirect_to errors_path

@@ -5,7 +5,8 @@
         .column.content
             // %p This is the Content.
             %p= link_to "#{@hospital.name}", hospital_path(@hospital)
-            %p= link_to "Edit", edit_dedication_path(@dedication.id)
+            - if @donor_logged_in
+                %p= link_to "Edit", edit_dedication_path(@dedication.id)
 
             %ul#dedication_info
                 %li

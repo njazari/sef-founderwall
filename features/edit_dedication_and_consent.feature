@@ -10,8 +10,12 @@ Background:
     | id | first_name | last_name  | email | phone | status |
     | 1  | John | Smith | jsmith@gmail.com | 123-456-7890 | true |
   And the following dedications exist
-    | id | tier     | dedication     | hospital_id | donor_id | status |
-    | 1  | Platinum | For the kids   | 1           | 1        | true   |
+    | id | tier     | dedication     | hospital_id | donor_id | status | published |
+    | 1  | Platinum | For the kids   | 1           | 1        | true   | true      |
+  And the following users exist
+    | id | email            | password | donor_id |
+    | 1  | jsmith@gmail.com | password | 1 |
+  And I sign in with email "jsmith@gmail.com" and password "password"
   And I am on the edit page for dedication 1
 
 Scenario: After making a donation, I should see a form to enter my dedication and submit my consent

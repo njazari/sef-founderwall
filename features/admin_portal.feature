@@ -19,18 +19,18 @@ Feature: Admin portal
     | 2  | Gold | For the adults   | 1 | 2 | true |
     | 3  | Silver | Go Sankara! | 1 | 3 | false |
     And the following users exist
-    | id | email         | password | admin |
-    | 1  | foo@foo.com   | password | true  |
-    | 2  | bar@bar.com   | password | false | 
+    | id | email         | password | admin | donor_id |
+    | 1  | foo@foo.com   | password | true  | nil      |
+    | 2  | bar@bar.com   | password | false | 1        |
 
   Scenario: When I am not an admin, I should not be able to visit the admin portal
     Given I sign in with email "bar@bar.com" and password "password"
     And I am on the admin page
-    Then I should be on the error page
+    Then I should be on the donor page for "John Smith"
     
   Scenario: When I am an admin, I should be able to visit the admin portal
     Given I sign in with email "foo@foo.com" and password "password"
-    And I am on the admin page
+    And I go to the admin page
     Then I should be on the admin page
     
   Scenario: When I am not signed in, I should be taken to the sign in page when visiting the admin portal
