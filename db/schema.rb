@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161117002131) do
     t.integer "hospital_id"
     t.integer "donor_id"
     t.string  "tier"
-    t.boolean "published",   default: false, null: false
+    t.boolean "published",   default: false
     t.string  "date"
   end
 

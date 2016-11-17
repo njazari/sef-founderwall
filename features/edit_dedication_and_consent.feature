@@ -38,6 +38,6 @@ Scenario: After publishing dedication and consent, I should see my dedication on
   
 Scenario: After revoking consent, I should not see my dedication on the Digital Wall of Founders
   When I uncheck "I want my dedication to appear on the Digital Wall of Founders"
-  And I press "Save"
+  And I press "Publish"
   And I go to the hospital page for "Hospital 1"
   Then I should not see "For the kids"

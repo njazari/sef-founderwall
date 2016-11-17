@@ -48,8 +48,7 @@ Scenario: I should not see an edit button on a dedication page if I am not logge
   And I go to the dedication page for dedication 1
   Then I should not see "Edit"
   
- Scenario: I should see an edit button on a dedication page if I am logged in as the donor
+ Scenario: I should see an edit button on a dedication page if I am logged in as the donor and the dedication is not published
   Given I sign in with email "donor@donor.com" and password "password"
-  And I go to the dedication page for dedication 1
+  And I go to the dedication page for dedication 2
   Then I should see "Edit"
-   
