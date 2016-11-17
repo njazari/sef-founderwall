@@ -4,6 +4,7 @@ class DedicationsController < ApplicationController
     
     def show
         @dedication = Dedication.find(params[:id])
+        @published = @dedication.published
         if current_user
             @donor_logged_in = current_user.donor == @dedication.donor
         else
