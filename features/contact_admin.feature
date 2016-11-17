@@ -15,7 +15,7 @@ Feature: Send emails to admin
     And I fill in "Email" with "jdoe@gmail.com"
     And I fill in "Message" with "This is a test"
     And I press "Send message"
-    Then I should see "Thank you for your message."
+    Then I should see "Thank you for your message!"
     
   Scenario: When I enter an invalid email, I should get an error
     Given I am on the new contact page
