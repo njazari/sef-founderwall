@@ -13,10 +13,10 @@ Feature: List of Dedications
     | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 |true |
     | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 | true |
     And the following dedications exist
-    | id | tier | dedication  | hospital_id | donor_id | status |
-    | 1  | Platinum | For the kids | 1 | 1 | true |
-    | 2  | Gold | For the adults   | 1 | 2 | true |
-    | 3  | Silver | Go Sankara! | 1 | 3 | false |
+    | id | tier | dedication  | hospital_id | donor_id | status | published |
+    | 1  | Platinum | For the kids | 1 | 1 | true | true |
+    | 2  | Gold | For the adults   | 1 | 2 | true | true |
+    | 3  | Silver | Go Sankara! | 1 | 3 | false | true |
     And I am on the hospital page for "Hospital 1" 
 
   Scenario: When on a Hospital page, I should see the names of all donors and their dedications

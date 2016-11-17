@@ -16,9 +16,9 @@ Feature:
         | 40  | Sherlock   | Holmes     | not@donor.com   | 
         | 41  | John       | Watson     | donor@donor.com | 
     And the following dedications exist
-        | hospital_id | tier | dedication    | donor_id | status | published |
-        | 221         | Gold | To Mary       | 41       | true   | true      |
-        | 221         | Gold | To Sherlock   | 41       | true   | false     |
+        | id | hospital_id | tier | dedication    | donor_id | status | published |
+        | 1  | 221         | Gold | To Mary       | 41       | true   | true      |
+        | 2  | 221         | Gold | To Sherlock   | 41       | true   | false     |
  
  Scenario: I should be able to see only published dedications if I am not logged in
   Given I am on the donor page for "John Watson"
@@ -43,3 +43,13 @@ Scenario: I should be able to see only published dedications if I am logged in a
   And I should not see "Unpublished Dedications"
   And I should not see "To Sherlock" 
   
+Scenario: I should not see an edit button on a dedication page if I am not logged in as the donor
+  Given I sign in with email "not@donor.com" and password "password"
+  And I go to the dedication page for dedication 1
+  Then I should not see "Edit"
+  
+ Scenario: I should see an edit button on a dedication page if I am logged in as the donor
+  Given I sign in with email "donor@donor.com" and password "password"
+  And I go to the dedication page for dedication 1
+  Then I should see "Edit"
+   
