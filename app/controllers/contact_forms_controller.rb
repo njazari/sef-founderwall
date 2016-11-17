@@ -1,5 +1,3 @@
-require 'rest-client'
-
 class ContactFormsController < ApplicationController
     def new
       @contact_form = ContactForm.new
