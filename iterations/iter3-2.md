@@ -15,3 +15,6 @@ Since this will be more time consuming, we pushed it to iter4.
 
 Donor login and publish completed dedications:
 https://youtu.be/VJ07tX_EOZE
+
+New UI and Email admin form:
+https://youtu.be/sftOK0kxe54
