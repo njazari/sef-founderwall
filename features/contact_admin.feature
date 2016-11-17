@@ -31,7 +31,7 @@ Feature: Send emails to admin
     Then I should see "can't be blank"
     
   Scenario: When I fill in the nickname field, I should be marked as spam
-    Given I am on the enw contact page 
+    Given I am on the new contact page 
     And I fill in "Name" with "John Doe"
     And I fill in "Email" with "jdoe@gmail.com"
     And I fill in "Nickname" with "SPAM"
