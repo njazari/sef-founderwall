@@ -20,31 +20,29 @@ RSpec.describe Donor, type: :model do
         Dedication.create(:donor => @donor2, :tier => 'Silver', :published => false)       
     end
     
-    describe ".published_dedications_by_tier" do
+    describe ".dedications_by_tier" do
         it "returns only published dedications" do
-            expect(@donor1.published_dedications_by_tier['Platinum'].length).to eq 1   
+            expect(@donor1.dedications_by_tier(true)['Platinum'].length).to eq 1   
         end
         
         it "splits returned dedications by tier" do
-            expect(@donor1.published_dedications_by_tier['Gold'].length).to eq 2   
+            expect(@donor1.dedications_by_tier(true)['Gold'].length).to eq 2   
         end
         
         it "includes only that donor's dedications" do
-            expect(@donor1.published_dedications_by_tier['Silver'].length).to eq 3   
+            expect(@donor1.dedications_by_tier(true)['Silver'].length).to eq 3   
         end
-    end
     
-    describe ".unpublished_dedications_by_tier" do
         it "returns only unpublished dedications" do
-            expect(@donor1.unpublished_dedications_by_tier['Platinum'].length).to eq 2   
+            expect(@donor1.dedications_by_tier(false)['Platinum'].length).to eq 2   
         end
         
         it "splits returned dedications by tier" do
-            expect(@donor1.unpublished_dedications_by_tier['Gold'].length).to eq 1   
+            expect(@donor1.dedications_by_tier(false)['Gold'].length).to eq 1   
         end
                 
         it "includes only that donor's dedications" do
-            expect(@donor1.unpublished_dedications_by_tier['Silver'].length).to eq 0   
+            expect(@donor1.dedications_by_tier(false)['Silver'].length).to eq 0   
         end
     end
 end
