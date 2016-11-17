@@ -32,7 +32,7 @@ Feature: List of Dedications
     And I should see "Cost: 20000"
     
   Scenario: When I click on a dedication I should be taken to the dedication's page
-    And I follow "view_1"
+    And I click on "See Dedication"
     Then I should be on the dedication page for dedication 1
     
   Scenario: When I click on a donor I should be taken to the donor's page
