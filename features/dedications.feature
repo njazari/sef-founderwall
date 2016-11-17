@@ -38,3 +38,7 @@ Feature: List of Dedications
   Scenario: When I click on a donor I should be taken to the donor's page
     And I follow "John Smith"
     Then I should be on the donor page for "John Smith"
+  
+  Scenario: When I visit a hidden dedication I should see an error page
+    Given I am on the dedication page for dedication 3
+    Then I should be on the errors page 
