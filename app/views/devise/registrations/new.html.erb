@@ -1,25 +1,12 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name,  url: registration_path(resource), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name,  url: user_registration_path(resource), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
   
-  <%= f.fields_for :donor, @donor do |donor_f| %>
-    <div class="field">
-      <%= donor_f.label :first_name %><br />
-      <%= donor_f.text_field :first_name %>
-    </div>  
-    
-    <div class="field">
-      <%= donor_f.label :last_name %><br />
-      <%= donor_f.text_field :last_name %>
-    </div>  
-    
-    <div class="field">
-      <%= donor_f.label :email %><br />
-      <%= donor_f.email_field :email %>
-    </div>
-    
-  <% end %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :value => @donor.email %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>
@@ -33,6 +20,8 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  
+  <%= f.hidden_field :donor_id, :value => params[:donor_id] %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

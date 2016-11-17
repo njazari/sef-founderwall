@@ -14,25 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
   # POST /resource
-   def create
-#    @donor = Donor.find(params[:donor_id])
-    build_resource
-    resource.tag_list = params[:tags]   #******** here resource is user 
-    if resource.save
-     if resource.active_for_authentication?
-      set_flash_message :notice, :signed_up if is_navigational_format?
-      sign_in(resource_name, resource)
-      respond_with resource, :location => after_sign_up_path_for(resource)
-     else
-      set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
-      expire_session_data_after_sign_in!
-      respond_with resource, :location => after_inactive_sign_up_path_for(resource)
-     end
-    else
-     clean_up_passwords resource
-     respond_with resource
-    end
-   end
+  def create
+   @donor = Donor.find(params[:user][:donor_id])
+   super
+  end
 
   # GET /resource/edit
   # def edit
@@ -71,9 +56,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-   def after_sign_up_path_for(resource)
-    donor_path(resource.donor)
-   end
+  def after_sign_up_path_for(resource)
+   donor_path(params[:donor_id])
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
