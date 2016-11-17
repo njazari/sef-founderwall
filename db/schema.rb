@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116070341) do
+ActiveRecord::Schema.define(version: 20161117002131) do
 
   create_table "contact_forms", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161116070341) do
     t.integer "hospital_id"
     t.integer "donor_id"
     t.string  "tier"
-    t.boolean "published",   default: false
+    t.boolean "published",   default: false, null: false
     t.string  "date"
   end
 
