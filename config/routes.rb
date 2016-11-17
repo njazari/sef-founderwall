@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+#  devise_for :users
   resources :errors
   resources :hospitals
   resources :donors
@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'hospitals#index'
+  
+  Rails.application.routes.draw do
+    devise_for :users, controllers: {
+      registrations: 'users/registrations',
+      sessions: 'users/sessions'
+    }
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

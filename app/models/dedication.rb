@@ -7,11 +7,7 @@ class Dedication < ActiveRecord::Base
             if self.status.nil? then self.status = true end
         end 
     end
-    
-    def self.tiers
-        ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
-    end
-        
+
     filterrific(
         available_filters: [:sorted_by, :with_hospital_id,
                             :search_query])
@@ -33,12 +29,15 @@ class Dedication < ActiveRecord::Base
         end
     }
     
-    
     def self.options_for_sorted_by 
         [
             ['Dedication', 'dedication_asc'],
             ['Donor', 'donor_asc'], 
             ['Hospital', 'hospital_asc']
         ]
+    end
+    
+    def self.tiers
+        ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
     end
 end

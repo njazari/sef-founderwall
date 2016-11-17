@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161116070341) do
 
   create_table "contact_forms", force: :cascade do |t|
@@ -22,6 +23,9 @@ ActiveRecord::Schema.define(version: 20161116070341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20161117002131) do
+>>>>>>> f790c9cc47a755e90eea02bffcc12088a934ff23
 
   create_table "dedications", force: :cascade do |t|
     t.string  "dedication"
@@ -29,8 +33,8 @@ ActiveRecord::Schema.define(version: 20161116070341) do
     t.integer "hospital_id"
     t.integer "donor_id"
     t.string  "tier"
+    t.boolean "published",   default: false
     t.string  "date"
-    t.boolean "published"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -73,6 +77,7 @@ ActiveRecord::Schema.define(version: 20161116070341) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "donor_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
