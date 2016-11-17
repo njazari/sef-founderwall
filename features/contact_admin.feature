@@ -13,7 +13,7 @@ Feature: Send emails to admin
     Given I am on the new contact page
     And I fill in "Name" with "John Doe"
     And I fill in "Email" with "jdoe@gmail.com"
-    And I fill in "Message" with "This is a test"
+    And I fill in "Message" with "This is a test. Please ignore."
     And I press "Send message"
     Then I should see "Thank you for your message!"
     
