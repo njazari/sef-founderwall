@@ -12,7 +12,7 @@ class DedicationsController < ApplicationController
     end
     
     def index
-        @dedications = Dedication.where(:status => true)
+        @dedications = Dedication.where(:status => true, :published => true)
         
         @filterrific = initialize_filterrific(
             Dedication, 
@@ -51,6 +51,10 @@ class DedicationsController < ApplicationController
     
     def edit
         @dedication = Dedication.find(params[:id])
+        if @dedication.published
+            flash[:notice] = "You can no longer edit this dedication. Please contact the admin for any concerns."
+            redirect_to dedication_path(@dedication)
+        end
     end
     
     def update

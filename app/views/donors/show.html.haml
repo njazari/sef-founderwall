@@ -14,15 +14,18 @@
             %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
 
 - if @donor_logged_in
-  %h2 Unpublished Dedications:
+  %h2 Unpublished Dedications
   - @tiers.each do |tier|
-    - if !@donor_unpublished_dedications_by_tier[tier].empty?
-      - @donor_new_dedications.each do |dedication|
-        %div{:class => "dedication", :id => dedication.id} 
-          = link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
-          %ul
-            %li Tier: #{dedication.tier}
-            = link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-            = link_to "Edit", edit_dedication_path(dedication.id)
+    - @donor_unpublished_dedications_by_tier[tier].each do |dedication|
+      %div{:class => "dedication", :id => dedication.id} 
+        .col-md-4.portfolio-item
+          .panel.panel-default
+            .panel-heading
+              %h4= dedication.tier
+            .panel-body
+              %p= dedication.dedication
+              %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+              %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
+              %p= link_to "Edit", edit_dedication_path(dedication.id)
     
   = button_to "Log out", destroy_user_session_path, :method => :delete

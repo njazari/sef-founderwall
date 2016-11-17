@@ -47,6 +47,7 @@ dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, 
             {:id => 10, :dedication => 'Keep funding', :status => true, :hospital_id => 4, :donor_id => 9, :tier => "Silver"},
             {:id => 11, :dedication => 'I love Sankara', :status => false, :hospital_id => 1, :donor_id => 8, :tier => "Platinum"},
             {:id => 12, :dedication => 'I hate blindness!', :status => true, :hospital_id => 5, :donor_id => 10, :tier => "Gold"},
+            {:id => 13, :hospital_id => 1, :donor_id => 2, :tier => "Silver"}
   	 ]
 
 dedications.each do |dedication|
