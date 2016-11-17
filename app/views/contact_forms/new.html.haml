@@ -1,7 +1,14 @@
+%h1 Contact us
+
+Use the form below to email our support staff with any questions or issues. 
+
+%br
+%br
+
 = simple_form_for @contact_form do |f|
     = f.input :name, :required => false
     = f.input :email, :required => false
     = f.input :message, :as => :text, :required => false
-    /.hidden
-    = f.input :nickname, :hint => 'Leave this field blank!'
+    .hidden
+        = f.input :nickname, :hint => 'Leave this field blank!'
     = f.button :submit, 'Send message'

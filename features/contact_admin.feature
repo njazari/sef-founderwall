@@ -29,3 +29,11 @@ Feature: Send emails to admin
     And I fill in "Email" with "jdoe@gmail.com"
     And I press "Send message"
     Then I should see "can't be blank"
+    
+  Scenario: When I fill in the nickname field, I should be marked as spam
+    Given I am on the enw contact page 
+    And I fill in "Name" with "John Doe"
+    And I fill in "Email" with "jdoe@gmail.com"
+    And I fill in "Nickname" with "SPAM"
+    And I press "Send message"
+    Then I should see "Sorry, this message appears to be spam and was not delivered."

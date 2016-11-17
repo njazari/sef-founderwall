@@ -11,7 +11,7 @@ class ContactForm < MailForm::Base
     "@api.mailgun.net/v3/sandbox20eb7f8a89f94fd7a615b95e0ce9d583.mailgun.org/messages",
     :from => "[#{name}] Wall of Founders Support <postmaster@sandbox20eb7f8a89f94fd7a615b95e0ce9d583.mailgun.org>",
     :to => "Sankara Eye Foundation <integrations@giftofvision.org>",
-    :subject => "[#{name}] WoF Support Email",
+    :subject => "WoF Support Email",
     :text => "Message from #{name} (#{email}): \n\n #{message}"
   end
 
