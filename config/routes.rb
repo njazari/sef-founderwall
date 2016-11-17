@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 #  devise_for :users
   resources :errors
   resources :hospitals
   resources :donors
   resources :dedications
+  resources :contact_forms
   
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
