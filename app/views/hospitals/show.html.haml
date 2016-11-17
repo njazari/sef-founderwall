@@ -59,7 +59,7 @@
             %div{:class => "dedication", :id => dedication.id} 
                 .row
                     .col-md-4
-                        %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication))
+                        %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication.donor))
                         %p= dedication.dedication
                         .btn.btn-default
                             = button_to "See Dedication", dedication_path(dedication), :method => :get
