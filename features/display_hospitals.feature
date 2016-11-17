@@ -10,7 +10,7 @@ Feature: Display Main Hospital List
     | name        | city        | state | building_status   | status | 
     | Hospital 1  | Los Angeles | CA    | In Construction   | true   |
     | Hospital 2  | Berkeley    | CA    | Completed         | true   |
-    | Hospital 3  | Seattle     | WA    | Completed         | true   |
+    | Hospital 3  | Seattle     | WA    | Completed         | false   |
 
 
   Scenario: Create hospital list page shown
@@ -33,3 +33,6 @@ Feature: Display Main Hospital List
     Given I am on the home page
     Then I should see "Hospital 1" before "Hospital 2"
     
+  Scenario: When I visit a hidden hospital I should see an error page
+    Given I am on the hospital page for "Hospital 3" 
+    Then I should be on the errors page 
