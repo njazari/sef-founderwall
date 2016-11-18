@@ -16,15 +16,15 @@ class ContactFormsController < ApplicationController
           @spam = true
           @message = "Sorry, this message appears to be spam and was not delivered."
         else
-          if @contact_form.deliver # this line is here to trigger css styling/input validation
+          #if @contact_form.deliver # this line is here to trigger css styling/input validation
             if @contact_form.send_message.code == 201
               @message = 'Thank you for your message!'
             else
               @message = "Could not send message. Try again"
             end
-          else
-            render :new
-          end
+          # else
+          #   render :new
+          #end
       end
       rescue ScriptError
         flash[:error] = 'Sorry, this message appears to be spam and was not delivered.'
