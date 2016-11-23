@@ -40,23 +40,22 @@
               %li
                 %a{:href => destroy_user_session_path, :method => :delete}
                   Log out 
-    .container
-      = yield
-      %footer.footer
-        .container
-          %nav.pull-left
-            %ul
-              %li
-                %a{:href => "http://www.creative-tim.com"}
-                  Home
-              %li
-                %a{:href => "http://presentation.creative-tim.com"}
-                  About Us
-              %li
-                %a{:href => "http://blog.creative-tim.com"}
-                  Donate
-              %li
-                %a{:href => "http://www.creative-tim.com/license"}
-                  Licenses
-          .copyright.pull-right
-            © 2016, Sankara Eye Foundation 2016
+    = yield
+    %footer.footer
+      .container
+        %nav.pull-left
+          %ul
+            %li
+              %a{:href => "http://www.creative-tim.com"}
+                Home
+            %li
+              %a{:href => "http://presentation.creative-tim.com"}
+                About Us
+            %li
+              %a{:href => "http://blog.creative-tim.com"}
+                Donate
+            %li
+              %a{:href => "http://www.creative-tim.com/license"}
+                Licenses
+        .copyright.pull-right
+          © 2016, Sankara Eye Foundation 2016
