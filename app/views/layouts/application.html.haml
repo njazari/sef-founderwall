@@ -3,39 +3,125 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Sankara Eye Foundation - Wall of Founders
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    = stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600", media: 'all', 'data-turbolinks-track' => true   
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  %body.landing-page
+    %nav.navbar.navbar-absolute
       .container
+        / Brand and toggle get grouped for better mobile display
         .navbar-header
-          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %button.navbar-toggle{"data-target" => "#navigation-example", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
           %a.navbar-brand{:href => "/"} Wall of Founders
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        #navigation-example.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a= link_to "Dedications", dedications_path
+              %a{:href => dedications_path}
+                Dedications
             %li
-              %a= link_to "Hospitals", root_path
+              %a{:href => root_path} 
+                Hospitals
             %li
-              %a= link_to "Contact", new_contact_form_path
+              %a{:href => new_contact_form_path}
+                Contact
             - if current_user != nil and current_user.admin == true
-              %li 
-                %a= link_to "Admin Portal", rails_admin_path
+              %li
+                %a{:href => rails_admin_path}
+                  Admin Portal
             - if not user_signed_in?
               %li
-                %a= link_to "Log In", new_user_session_path
-            - else
-              %li 
-                %a= link_to "Log out", destroy_user_session_path, :method => :delete 
-    .container
-      = yield
-      %footer
-        .row
-          .col-lg-12.text-center
-            %p Copyright © Sankara Eye Foundation 2016
+                %a{:href => new_user_session_path} 
+                  Log In
+              %li
+                %a{:href => destroy_user_session_path, :method => :delete}
+                  Log out                
+    = yield
+    %footer.footer
+      .container
+        %nav.pull-left
+          %ul
+            %li
+              %a{:href => "http://www.creative-tim.com"}
+                Home
+            %li
+              %a{:href => "http://presentation.creative-tim.com"}
+                About Us
+            %li
+              %a{:href => "http://blog.creative-tim.com"}
+                Donate
+            %li
+              %a{:href => "http://www.creative-tim.com/license"}
+                Licenses
+        .copyright.pull-right
+          © 2016, Sankara Eye Foundation 2016
+
+
+
+// !!!
+// %html
+//   %head
+//     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+//     %title Sankara Eye Foundation - Wall of Founders
+//     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
+//     %meta{:content => "width=device-width", :name => "viewport"}/
+//     = stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600", media: 'all', 'data-turbolinks-track' => true   
+//     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+//     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+//     = csrf_meta_tags
+//   %body
+//     %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+//       .container
+//         .navbar-header
+//           %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+//             %span.sr-only Toggle navigation
+//             %span.icon-bar
+//             %span.icon-bar
+//             %span.icon-bar
+//           %a.navbar-brand{:href => "/"} Wall of Founders
+//         #bs-example-navbar-collapse-1.collapse.navbar-collapse
+//           %ul.nav.navbar-nav.navbar-right
+//             %li
+//               %a= link_to "Dedications", dedications_path
+//             %li
+//               %a= link_to "Hospitals", root_path
+//             %li
+//               %a= link_to "Contact", new_contact_form_path
+//             - if current_user != nil and current_user.admin == true
+//               %li 
+//                 %a= link_to "Admin Portal", rails_admin_path
+//             - if not user_signed_in?
+//               %li
+//                 %a= link_to "Log In", new_user_session_path
+//             - else
+//               %li 
+//                 %a= link_to "Log out", destroy_user_session_path, :method => :delete 
+//     = yield
+//     %footer.footer.footer-big.footer-color-black{"data-color" => "black"}
+//       .container
+//         .row
+//           .col-md-2.col-sm-3
+//             .info
+//               %h5.title Company
+//               %nav
+//                 %ul
+//                   %li
+//                     %a{:href => "#"} Home
+//                   %li
+//                     %a{:href => "#"} Find offers
+//                   %li
+//                     %a{:href => "#"} Discover Projects
+//                   %li
+//                     %a{:href => "#"} Our Portfolio
+//                   %li
+//                     %a{:href => "#"} About Us
+//         %hr/
+//         .copyright
+//           © Sankara Eye Foundation 2016
+

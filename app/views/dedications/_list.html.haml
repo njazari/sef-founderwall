@@ -1,3 +1,82 @@
+// #filterrific_results    
+//   .well.well-small
+//     .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
+//       = link_to "Reset filters", reset_filterrific_url, :class => 'btn btn-default btn-sm'
+//     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => "will_paginate's entries info works as expected." }
+//       = page_entries_info dedications, :model => 'dedication'
+//     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
+//       = render_filterrific_spinner
+//   .wrapper
+//     // .main.main-raised
+//     .main
+//       .container
+//         .section.text-center
+//           %h2.title Here is our team
+//           .team
+//             .row
+//               - dedications.each do |d|
+//                 .col-md-4
+//                   .card.card-member
+//                     .content
+//                       %img.img-raised.img-circle{:alt => "Thumbnail Image", :src => "sankara.png"}
+//                       %h4.title
+//                         %a{:href => donor_path(Donor.find(d.donor_id)), :method => :get}
+//                           = d.donor.first_name + " " +  d.donor.last_name
+//                         %br/
+//                         %small.text-muted 
+//                           = d.hospital.name
+//                       %p.description
+//                         = d.dedication
+//                       %button.btn.btn-primary.btn-round
+//                         %a{:href => dedication_path(d), :method => :get}
+//                           See Dedication
+//   .text-center
+//     .pagination
+//       = will_paginate dedications
+// - dedications.each do |d|
+//   .col-md-4
+//     .card.card-member
+//       .content
+//         .avatar.avatar-danger
+//           %img.img-circle
+//             = image_tag "silver.jpg"
+//         .description
+//           %h3.title 
+//             = link_to d.donor.first_name + " " +  d.donor.last_name, donor_path(Donor.find(d.donor_id)), :method => :get
+//           %p.small-text 
+//             = d.hospital.name
+//           %p.description 
+//             = d.dedication
+//           .btn.btn-default
+//             = button_to "See Dedication", dedication_path(d), :method => :get
+// #filterrific_results    
+//   .well.well-small
+//     .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
+//       = link_to "Reset filters", reset_filterrific_url, :class => 'btn btn-default btn-sm'
+//     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => "will_paginate's entries info works as expected." }
+//       = page_entries_info dedications, :model => 'dedication'
+//     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
+//       = render_filterrific_spinner
+//   - dedications.each do |d|
+//     .col-md-4
+//       .card.card-member
+//         .content
+//           .avatar.avatar-danger
+//             %img.img-circle
+//               = image_tag "silver.jpg"
+//           .description
+//             %h3.title 
+//               = link_to d.donor.first_name + " " +  d.donor.last_name, donor_path(Donor.find(d.donor_id)), :method => :get
+//             %p.small-text 
+//               = d.hospital.name
+//             %p.description 
+//               = d.dedication
+//             .btn.btn-default
+//               = button_to "See Dedication", dedication_path(d), :method => :get
+//   .text-center
+//     .pagination
+//       = will_paginate dedications
+
 #filterrific_results    
   .well.well-small
     .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
@@ -17,9 +96,9 @@
           %p= d.hospital.name
           .btn.btn-default
             = button_to "See Dedication", dedication_path(d), :method => :get
-  .text-center
-    .pagination
-      = will_paginate dedications
+
+  .pagination
+    = will_paginate dedications
 
 
 
