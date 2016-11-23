@@ -40,22 +40,23 @@
               %li
                 %a{:href => destroy_user_session_path, :method => :delete}
                   Log out 
-    = yield
-    %footer.footer
-      .container
-        %nav.pull-left
-          %ul
-            %li
-              %a{:href => "#"}
-                Home
-            %li
-              %a{:href => "#"}
-                About Us
-            %li
-              %a{:href => "#"}
-                Donate
-            %li
-              %a{:href => "#"}
-                Licenses
-        .copyright.pull-right
-          © 2016, Sankara Eye Foundation 2016
+    .container
+      = yield
+      %footer.footer
+        .container
+          %nav.pull-left
+            %ul
+              %li
+                %a{:href => "#"}
+                  Home
+              %li
+                %a{:href => "#"}
+                  About Us
+              %li
+                %a{:href => "#"}
+                  Donate
+              %li
+                %a{:href => "#"}
+                  Licenses
+          .copyright.pull-right
+            © 2016, Sankara Eye Foundation 2016
