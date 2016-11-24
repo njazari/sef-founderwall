@@ -43,6 +43,11 @@ module NavigationHelpers
       '/'
     when /^the new contact page$/
       new_contact_form_path
+    when /^the signup page for donor (.*)$/
+      "/users/sign_up?donor_id=#{$1}"
+      
+    when /^the encrypted signup page for donor (.*)$/
+      "/users/sign_up?donor_id=#{1}" # edit later
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
