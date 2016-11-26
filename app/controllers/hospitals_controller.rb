@@ -5,12 +5,13 @@ class HospitalsController < ApplicationController
     end
     
     def show
-        @hospital = Hospital.find(params[:id])
-        @tiers = Dedication.tiers
-        @hospital_published_dedications_by_tier = @hospital.published_dedications_by_tier
-        if @hospital.status == false
-            flash[:error] = "hospital"
-            redirect_to errors_path
+        @hospital = Hospital.find_by_id(params[:id])
+        if @hospital.nil? or @hospital.status == false
+            @error = 'Hospital'
+            render 'errors/status'
+        else
+            @tiers = Dedication.tiers
+            @hospital_published_dedications_by_tier = @hospital.published_dedications_by_tier
         end
     end
 end
