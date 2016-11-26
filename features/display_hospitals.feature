@@ -35,4 +35,4 @@ Feature: Display Main Hospital List
     
   Scenario: When I visit a hidden hospital I should see an error page
     Given I am on the hospital page for "Hospital 3" 
-    Then I should be on the errors page 
+    Then I should see "Invalid Hospital ID"

@@ -42,6 +42,6 @@ Feature: Display Individual Dedication
      
   Scenario: When I visit a hidden dedication I should see an error page
      Given I am on the individual dedication page for "Tina Martinez" with dedication "3"
-     Then I should be on the errors page 
+     Then I should see "Invalid Dedication ID"
 
     

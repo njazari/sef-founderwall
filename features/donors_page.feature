@@ -38,6 +38,6 @@ Feature: List of Dedications for a Donor
     
   Scenario: When I visit a hidden donor I should see an error page
     Given I am on the donor page for "Tina Martinez" 
-    Then I should be on the errors page 
+    Then I should see "Invalid Donor ID"
     
     
