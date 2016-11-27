@@ -11,7 +11,7 @@ class Donor < ActiveRecord::Base
                 dedication.update(status: self.status)
             end 
         end
-    end 
+    end
     
     def dedications_by_tier(published)
         dbt = Hash.new

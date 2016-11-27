@@ -5,14 +5,24 @@
       Wall of Founders
       %small Sankara Eye Foundation
       
-.well.well-small     
-  = form_tag "/", method: :get, class: 'form-inline' do
-    .form-group
-      = search_field_tag :query, params[:query],
-        placeholder: 'Search for something',
-        size: 80,
-        class: 'form-control'
-      = submit_tag 'Search', name: nil, class: 'btn btn-default'      
+// .well
+//   = form_for_filterrific @filterrific do |f|
+//     .row
+//       .col-md-4
+//         .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by hospital name' }
+//           %label Search
+//           = f.text_field :search_query,
+//                         :class => 'filterrific-periodically-observed form-control'
+      
+      
+// .well.well-small     
+//   = form_tag "/", method: :get, class: 'form-inline' do
+//     .form-group
+//       = search_field_tag :query, params[:query],
+//         placeholder: 'Search for a hospital',
+//         size: 80,
+//         class: 'form-control'
+//       = submit_tag 'Search', name: nil, class: 'btn btn-default'      
       
 - @hospitals.each do |hospital|
   .row

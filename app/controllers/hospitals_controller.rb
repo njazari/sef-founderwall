@@ -4,6 +4,8 @@ class HospitalsController < ApplicationController
         @hospitals = Hospital.where(:status => true)
     end
     
+    
+    
     def show
         @hospital = Hospital.find(params[:id])
         @tiers = Dedication.tiers
