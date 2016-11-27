@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      flash[:error] = "Invalid password. Password must be at least 6 characters. Please try again."
+      flash[:error] = "Invalid password or nonmatching passwords. Please try again."
       redirect_to '/users/sign_up?donor_id=' + @donor.id.to_s
     end
   end
