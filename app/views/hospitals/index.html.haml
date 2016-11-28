@@ -1,30 +1,31 @@
 -#  This file is app/views/wall/index.html.haml
-.row
-  .col-lg-12
-    %h1.page-header
-      Wall of Founders
-      %small Sankara Eye Foundation
-      
-.well.well-small     
-  = form_tag "/", method: :get, class: 'form-inline' do
-    .form-group
-      = search_field_tag :query, params[:query],
-        placeholder: 'Search for something',
-        size: 80,
-        class: 'form-control'
-      = submit_tag 'Search', name: nil, class: 'btn btn-default'      
-      
-- @hospitals.each do |hospital|
+.container
   .row
-    .col-md-7
-      %a{:href => hospital_path(hospital)}
-        = image_tag "sankara.png", class: "img-responsive img-thumbnail"
-          
-    .col-md-5
-      %h3= "#{hospital.name}"
-      %h4= "#{hospital.city}, #{hospital.state}"
-      %p= "Building Status: #{hospital.building_status}"
-      %a.btn.btn-primary{:href => hospital_path(hospital)}
-        View Project
-        %span.glyphicon.glyphicon-chevron-right
-  %hr/
+    .col-lg-12
+      %h1.page-header
+        Wall of Founders
+        %small Sankara Eye Foundation
+        
+  .well.well-small     
+    = form_tag "/", method: :get, class: 'form-inline' do
+      .form-group
+        = search_field_tag :query, params[:query],
+          placeholder: 'Search for something',
+          size: 80,
+          class: 'form-control'
+        = submit_tag 'Search', name: nil, class: 'btn btn-default'      
+        
+  - @hospitals.each do |hospital|
+    .row
+      .col-md-7
+        %a{:href => hospital_path(hospital)}
+          = image_tag "sankara.png", class: "img-responsive img-thumbnail"
+            
+      .col-md-5
+        %h3= "#{hospital.name}"
+        %h4= "#{hospital.city}, #{hospital.state}"
+        %p= "Building Status: #{hospital.building_status}"
+        %a.btn.btn-primary{:href => hospital_path(hospital)}
+          View Project
+          %span.glyphicon.glyphicon-chevron-right
+    %hr/
