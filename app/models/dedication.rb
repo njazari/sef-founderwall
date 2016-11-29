@@ -31,6 +31,7 @@ class Dedication < ActiveRecord::Base
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
     num_or_conds = 4
+    joins(:donor).joins(:hospital).
     where(
         terms.map { |term|
         "(LOWER(dedications.dedication) LIKE ? OR
@@ -46,7 +47,7 @@ class Dedication < ActiveRecord::Base
         direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
         case sort_option.to_s
         when /^dedication_/
-            order("dedications.dedication #{ direction }").includes(:donor).includes(:hospital)
+            order("dedications.dedication #{ direction }")
         when /^donor_/
             order("donors.first_name #{ direction }").includes(:donor).includes(:hospital)
         when /^hospital_/
