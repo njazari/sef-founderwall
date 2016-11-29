@@ -9,51 +9,51 @@ class Dedication < ActiveRecord::Base
     end
 
     filterrific(
-        available_filters: [:sorted_by, :with_hospital_id,
-                            :search_query])
+        available_filters: [:sorted_by, :search_query])
                             
     belongs_to :hospital
     belongs_to :donor
+    
+    scope :search_query, lambda { |query|
+    # Searches the dedications table on the 'dedication' column.
+    # Matches using LIKE, automatically appends '%' to each term.
+    # LIKE is case INsensitive with MySQL, however it is case
+    # sensitive with PostGreSQL. To make it work in both worlds,
+    # we downcase everything.
+    return nil  if query.blank?
+
+    # check if query exists in any dedication
+    terms = [query.to_s.downcase]
+    terms = terms.map { |e|
+        ('%' + e + '%')
+    }
+    # configure number of OR conditions for provision
+    # of interpolation arguments. Adjust this if you
+    # change the number of OR conditions.
+    num_or_conds = 4
+    where(
+        terms.map { |term|
+        "(LOWER(dedications.dedication) LIKE ? OR
+        LOWER(donors.first_name) LIKE ? OR
+        LOWER(donors.last_name) LIKE ? OR 
+        LOWER(hospitals.name) LIKE ?)"
+        }.join('AND'),
+        *terms.map { |e| [e] * num_or_conds }.flatten
+    )
+}
   
     scope :sorted_by, lambda { |sort_option|
         direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
         case sort_option.to_s
         when /^dedication_/
-            order("LOWER(dedications.dedication) #{ direction }")
+            order("dedications.dedication #{ direction }").includes(:donor).includes(:hospital)
         when /^donor_/
-            includes(:donor).order('donors.first_name ASC')
+            order("donors.first_name #{ direction }").includes(:donor).includes(:hospital)
         when /^hospital_/
-            includes(:hospital).order('hospitals.name ASC')
+            order("hospitals.name #{ direction }").includes(:donor).includes(:hospital)
         else
             raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
         end
-    }
-    
-    scope :search_query, lambda { |query|
-        # Searches the dedications table on the 'dedication' column.
-        # Matches using LIKE, automatically appends '%' to each term.
-        # LIKE is case INsensitive with MySQL, however it is case
-        # sensitive with PostGreSQL. To make it work in both worlds,
-        # we downcase everything.
-        return nil  if query.blank?
-
-        # check if query exists in any dedication
-        terms = [query.to_s.downcase]
-        terms = terms.map { |e|
-            ('%' + e + '%')
-        }
-        # configure number of OR conditions for provision
-        # of interpolation arguments. Adjust this if you
-        # change the number of OR conditions.
-        num_or_conds = 2
-        where(
-            terms.map { |term|
-            "(LOWER(dedications.dedication) LIKE ? OR
-            LOWER(donors.first_name) LIKE ?)"
-            # LOWER(hospitals.name) LIKE ?)"
-            }.join('AND'),
-            *terms.map { |e| [e] * num_or_conds }.flatten
-        )
     }
     
     def self.options_for_sorted_by 
