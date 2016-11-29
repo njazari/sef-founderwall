@@ -69,4 +69,3 @@ Feature: Admin portal
     Then I am on the hospital page for "Hospital 1"
     And I should see "Surgeries: 20"
     
-    

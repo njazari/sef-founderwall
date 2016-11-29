@@ -2,7 +2,9 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
     %title Sankara Eye Foundation - Wall of Founders
+    = stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600", media: 'all', 'data-turbolinks-track' => true  
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -16,26 +18,34 @@
             %span.icon-bar
             %span.icon-bar
           %a.navbar-brand{:href => "/"} Wall of Founders
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        #navigationbar.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a= link_to "Dedications", dedications_path
+              %a{:href => root_path} 
+                Hospitals
             %li
-              %a= link_to "Hospitals", root_path
+              %a{:href => dedications_path}
+                Dedications
             %li
-              %a= link_to "Contact", new_contact_form_path
+              %a{:href => new_contact_form_path}
+                Contact
             - if current_user != nil and current_user.admin == true
-              %li 
-                %a= link_to "Admin Portal", rails_admin_path
+              %li
+                %a{:href => rails_admin_path}
+                  Admin Portal
             - if not user_signed_in?
               %li
-                %a= link_to "Log In", new_user_session_path
+                %a{:href => new_user_session_path} 
+                  Log In
             - else
-              %li 
-                %a= link_to "Log out", destroy_user_session_path, :method => :delete 
+              %li
+                // %a{href => destroy_user_session_path, :method => :delete}
+                //   Log out 
+                // %a= link_to "Log out", destroy_user_session_path, :method => :delete 
+                = link_to('Log out', destroy_user_session_path, :method => :delete)
+  = yield
+    
+  %footer.footer.footer-color-black{"data-color" => "black"}
     .container
-      = yield
-      %footer
-        .row
-          .col-lg-12.text-center
-            %p Copyright © Sankara Eye Foundation 2016
+      .copyright
+        © 2016, Sankara Eye Foundation 2016

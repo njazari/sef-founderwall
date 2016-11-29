@@ -18,7 +18,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @donor = Donor.find(params[:user][:donor_id])
     build_resource(sign_up_params)
     resource.donor = @donor
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -34,7 +33,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      flash[:error] = "Invalid password or nonmatching passwords. Please try again."
+      redirect_to '/users/sign_up?donor_id=' + @donor.id.to_s
     end
   end
 
