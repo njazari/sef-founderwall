@@ -10,9 +10,9 @@
                                 .col-md-4.col-md-offset-4
                                     .card.card-member
                                         .content
-                                            .avatar.avatar-danger
-                                                %img.img-circle
-                                                    = image_tag "silver.jpg"
+                                            // .avatar.avatar-danger
+                                            //     %img.img-circle
+                                            //         = image_tag "silver.jpg"
                                             .description
                                                 %h3.title 
                                                     = link_to "#{@dedication.donor.first_name} #{@dedication.donor.last_name}", donor_path(Donor.find(@dedication.donor_id))

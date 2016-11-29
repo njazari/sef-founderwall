@@ -5,16 +5,16 @@
       %h1.page-header
         Wall of Founders
         %small Sankara Eye Foundation
-        
-  .well.well-small     
-    = form_tag "/", method: :get, class: 'form-inline' do
-      .form-group
-        = search_field_tag :query, params[:query],
-          placeholder: 'Search for something',
-          size: 80,
-          class: 'form-control'
-        = submit_tag 'Search', name: nil, class: 'btn btn-default'      
-        
+  .row      
+    .well.well-small     
+      = form_tag "/", method: :get, class: 'form-inline' do
+        .form-group
+          = search_field_tag :query, params[:query],
+            placeholder: 'Search for something',
+            size: 80,
+            class: 'form-control'
+          = submit_tag 'Search', name: nil, class: 'btn btn-default'  
+
   - @hospitals.each do |hospital|
     .row
       .col-md-7

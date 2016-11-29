@@ -16,7 +16,7 @@
 @import "social-share-button";
 
 body {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 /*      light colors         */
@@ -369,9 +369,9 @@ body > .navbar-collapse a {
   color: #FFFFFF;
 }
 
-.form-control {
-  margin-bottom: 1.875em;
-}
+// .form-control {
+//   margin-bottom: 1.875em;
+// }
 
 @-webkit-keyframes zoomOut {
   0% {
@@ -954,7 +954,6 @@ a,
 }
 
 .section {
-  padding: 50px 0;
   position: relative;
   background-color: #FFFFFF;
 }
@@ -1512,6 +1511,7 @@ a,
   line-height: 20px;
   /*border-top: 1px solid #DDDDDD;*/
   overflow: hidden;
+	bottom:0;
 }
 .footer nav > ul {
   list-style: none;
@@ -2599,8 +2599,8 @@ a,
 }
 
 .section-our-team-freebie .container {
-  margin-top: 70px;
-  margin-bottom: 50px;
+  margin-top: 220px;
+  margin-bottom: 180px;
 }
 
 .card p {
@@ -3144,6 +3144,7 @@ body {
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
 @keyframes topbar-x {
   0% {
     top: 0px;
