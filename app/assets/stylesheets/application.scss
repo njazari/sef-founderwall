@@ -279,6 +279,18 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   outline: 0 !important;
 }
 
+/* Container */
+
+.container .form {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.container .devise {
+  margin-top: 100px;
+  margin-bottom: 250px;
+}
+
 /*           Animations              */
 .form-control,
 .input-group-addon,
@@ -430,9 +442,11 @@ body > .navbar-collapse a {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .loading .loading-container .loader {
   width: 40px;
 }
+
 .loading .loading-container p {
   font-size: 30px;
   margin-bottom: 30px;
