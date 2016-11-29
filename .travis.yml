@@ -12,3 +12,6 @@ after_script:
 addons:
     code_climate:
         repo_token: 5638cdd010e704253218d0821aa57816d888efd2e19d0f96c0158c71b5916fb7
+
+notifications:
+    email: false
