@@ -6,23 +6,23 @@
       = page_entries_info dedications, :model => 'dedication'
     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
       = render_filterrific_spinner
-  
+      
   - dedications.each do |d|
     .col-md-4
-      .panel.panel-default
+      .panel.panel-info
         .panel-heading
           %h4= link_to d.donor.first_name + " " +  d.donor.last_name, donor_path(Donor.find(d.donor_id)), :method => :get
         .panel-body
           %p= d.dedication
           %p= d.hospital.name
-          .btn.btn-default
-            = button_to "See Dedication", dedication_path(d), :method => :get
+          .btn.btn-default.btn-round.btn-sm
+            %a{:href => dedication_path(d), :method => :get}
+              See Dedication
+              
   .text-center
     .pagination
       = will_paginate dedications
-
-
-
+  
 
 
 
