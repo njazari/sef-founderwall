@@ -69,6 +69,7 @@
               .panel-body
                 %p= dedication.dedication
                 .btn.btn-default.btn-round.btn-sm
+                  // :id => "view_#{dedication.id}
                   %a{:href => dedication_path(dedication), :method => :get}
                     See Dedication
     %hr/
