@@ -27,5 +27,3 @@
               %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
               %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
               %p= link_to "Edit", edit_dedication_path(dedication.id)
-    
-  = button_to "Log out", destroy_user_session_path, :method => :delete
