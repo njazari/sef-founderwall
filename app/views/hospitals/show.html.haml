@@ -1,66 +1,67 @@
 .container
-    .row
-        .col-lg-12
-            %h1.page-header
-                #{@hospital.name}
-                %small #{@hospital.city}
+  .row
+    .col-lg-12
+      %h1.page-header
+        #{@hospital.name}
+        %small #{@hospital.city}
                 
-    .row
-        .col-md-8
-            = image_tag "sankara2.jpg", class: "img-responsive img-thumbnail"
-        .col-md-4
-            %h3 Project Description
-            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
-            %li
-                Surgeries:
-                = @hospital.surgeries
-            %li
-                Cost:
-                = @hospital.cost
-            %li
-                Story:
-                = @hospital.story
-    
-            %html
-                %head
-                %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-                :css
-                    #map {
-                        height: 150px;
-                        width: 100%;
-                    }
-                %body
-                    %h3 Location
-                    Latitude: #{@hospital.lat} 
-                    Longitude: #{@hospital.lng}
-                    #map
-                    :javascript
-                        function initMap() {
-                            var uluru = {lat: #{@hospital.lat}, lng: #{@hospital.lng} };
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                zoom: 6,
-                                center: uluru
-                            });
-                            var marker = new google.maps.Marker({
-                                position: uluru,
-                                map: map
-                            });
-                        }
-                %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
-    .well.well-small    
-        .nav.nav-tabs.nav-justified
-            - @tiers.each do |tier|
-                .btn.btn-default
-                    %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
+  .row
+    .col-md-8
+      = image_tag "sankara2.jpg", class: "img-responsive img-thumbnail"
+    .col-md-4
+      %h3 Project Description
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
+      %li
+        Surgeries:
+        = @hospital.surgeries
+      %li
+        Cost:
+        = @hospital.cost
+      %li
+        Story:
+        = @hospital.story
+
+      %html
+        %head
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+        :css
+          #map {
+            height: 150px;
+            width: 100%;
+          }
+        %body
+          %h3 Location
+          Latitude: #{@hospital.lat} 
+          Longitude: #{@hospital.lng}
+          #map
+          :javascript
+            function initMap() {
+              var uluru = {lat: #{@hospital.lat}, lng: #{@hospital.lng} };
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: uluru
+              });
+              var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+            }
+        %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
+        
+  .well.well-small    
+    .nav.nav-tabs.nav-justified
+      - @tiers.each do |tier|
+        .btn.btn-default
+          %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
        
-    - @tiers.each do |tier|
-        .well.well-small
-            %h2{:id => "#{tier}_header"} #{tier}
-            - @hospital_published_dedications_by_tier[tier].each do |dedication|
-                %div{:class => "dedication", :id => dedication.id} 
-                    .row
-                        .col-md-4
-                            %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication.donor))
-                            %p= dedication.dedication
-                            .btn.btn-default
-                                = button_to "See Dedication", dedication_path(dedication), :method => :get, :id => "view_#{dedication.id}"
+  - @tiers.each do |tier|
+    .well.well-small
+      %h2{:id => "#{tier}_header"} #{tier}
+      - @hospital_published_dedications_by_tier[tier].each do |dedication|
+        %div{:class => "dedication", :id => dedication.id} 
+          .row
+            .col-md-4
+              %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication.donor))
+              %p= dedication.dedication
+              .btn.btn-default
+                = button_to "See Dedication", dedication_path(dedication), :method => :get, :id => "view_#{dedication.id}"
