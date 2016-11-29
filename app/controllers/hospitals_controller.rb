@@ -4,6 +4,8 @@ class HospitalsController < ApplicationController
         @hospitals = Hospital.where(:status => true)
     end
     
+    
+    
     def show
         @hospital = Hospital.find_by_id(params[:id])
         if @hospital.nil? or @hospital.status == false
