@@ -2,7 +2,7 @@
   .well
     = form_for_filterrific @filterrific do |f|
       .row
-        .col-md-4
+        .col-md-8
           .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
             %label Search
             = f.text_field :search_query,

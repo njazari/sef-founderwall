@@ -158,6 +158,13 @@ a {
   opacity: .7;
   font-size: 14px;
 }
+
+.panel-heading a {
+  color: #09A4E6;
+  opacity: 1;
+}
+
+
 a:hover {
   color: #777777;
   opacity: 1;
@@ -361,7 +368,6 @@ body > .navbar-collapse a {
 }
 
 .avatar {
-  border: 3px solid #c5a47e;
   border-radius: 50%;
   overflow: hidden;
   max-width: 110px;
@@ -370,10 +376,6 @@ body > .navbar-collapse a {
 .avatar img {
   width: 100%;
   height: auto;
-}
-
-.avatar-danger {
-  border-color: #e78b90;
 }
 
 *::selection {
@@ -765,6 +767,10 @@ a,
 .btn:disabled, .btn[disabled], .btn.disabled {
   opacity: 0.5;
   filter: alpha(opacity=50);
+}
+
+.panel-body a {
+  font-size: 12px;
 }
 
 .btn-round {
@@ -2625,8 +2631,8 @@ a,
 }
 
 .section-our-team-freebie .container {
-  margin-top: 220px;
-  margin-bottom: 180px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .card p {
@@ -3775,3 +3781,4 @@ body {
     padding: 0;
   }
 }
+
