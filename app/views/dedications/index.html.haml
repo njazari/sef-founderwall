@@ -13,6 +13,8 @@
             = f.select :sorted_by,
                        @filterrific.select_options[:sorted_by],{},{ :class => 'form-control' }
   
+  
   #results
     = render :partial => 'dedications/list',
              :locals => { :dedications => @dedications }
+

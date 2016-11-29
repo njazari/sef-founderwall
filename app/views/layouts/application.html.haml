@@ -38,11 +38,13 @@
                   Log In
             - else
               %li
-                %a{:href => destroy_user_session_path, :method => :delete}
-                  Log out 
-    = yield
-      
-    %footer.footer.footer-color-black{"data-color" => "black"}
-      .container
-        .copyright
-          © 2016, Sankara Eye Foundation 2016
+                // %a{href => destroy_user_session_path, :method => :delete}
+                //   Log out 
+                // %a= link_to "Log out", destroy_user_session_path, :method => :delete 
+                = link_to('Log out', destroy_user_session_path, :method => :delete)
+  = yield
+    
+  %footer.footer.footer-color-black{"data-color" => "black"}
+    .container
+      .copyright
+        © 2016, Sankara Eye Foundation 2016
