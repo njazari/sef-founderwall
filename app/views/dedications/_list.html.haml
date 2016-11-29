@@ -6,6 +6,7 @@
       = page_entries_info dedications, :model => 'dedication'
     .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
       = render_filterrific_spinner
+      
   - dedications.each do |d|
     .col-md-4
       .panel.panel-info
@@ -17,6 +18,7 @@
           .btn.btn-default.btn-round.btn-sm
             %a{:href => dedication_path(d), :method => :get}
               See Dedication
+      
               
   .text-center
     .pagination

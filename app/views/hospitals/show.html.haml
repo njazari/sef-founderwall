@@ -47,21 +47,28 @@
               });
             }
         %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
+  
+  %hr/
         
-  .well.well-small    
-    .nav.nav-tabs.nav-justified
-      - @tiers.each do |tier|
-        .btn.btn-default
-          %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
-       
+  .nav.nav-tabs.nav-justified
+    - @tiers.each do |tier|
+      .btn.btn-default.btn-round.btn-sm
+        %a{:href => "##{tier}", :class => 'jump', :name => "#{tier}"} #{tier}
+  
+  %hr/
+  
   - @tiers.each do |tier|
-    .well.well-small
+    .row
       %h2{:id => "#{tier}_header"} #{tier}
       - @hospital_published_dedications_by_tier[tier].each do |dedication|
         %div{:class => "dedication", :id => dedication.id} 
-          .row
-            .col-md-4
-              %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication.donor))
-              %p= dedication.dedication
-              .btn.btn-default
-                = button_to "See Dedication", dedication_path(dedication), :method => :get, :id => "view_#{dedication.id}"
+          .col-md-4
+            .panel.panel-info
+              .panel-heading
+                %h4= link_to "#{dedication.donor.first_name} #{dedication.donor.last_name}", donor_path(Donor.find(dedication.donor))
+              .panel-body
+                %p= dedication.dedication
+                .btn.btn-default.btn-round.btn-sm
+                  %a{:href => dedication_path(dedication), :method => :get}
+                    See Dedication
+    %hr/
