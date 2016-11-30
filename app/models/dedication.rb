@@ -44,7 +44,11 @@ class Dedication < ActiveRecord::Base
                     bindings[:object].donor.email
                 end
             end
-
+            field :donor_has_account do
+                def value
+                    bindings[:object].donor.user != nil
+                end
+            end
         end
     end
   
