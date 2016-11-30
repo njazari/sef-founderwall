@@ -1,3 +1,3 @@
-When /^(?:|I )click on "([^"]*)"$/ do |button|
-  first(:button, button, minimum: 1).click
+When /^(?:|I )click on "([^"]*)"$/ do |link|
+  first(:link, link).click
 end

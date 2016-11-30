@@ -23,33 +23,32 @@
         Story:
         = @hospital.story
 
-      %html
-        %head
-        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-        :css
-          #map {
-            height: 150px;
-            width: 100%;
+      %head
+      %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+      :css
+        #map {
+          height: 150px;
+          width: 100%;
+        }
+      %body
+        %h3 Location
+        Latitude: #{@hospital.lat} 
+        Longitude: #{@hospital.lng}
+        #map
+        :javascript
+          function initMap() {
+            var uluru = {lat: #{@hospital.lat}, lng: #{@hospital.lng} };
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 6,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
           }
-        %body
-          %h3 Location
-          Latitude: #{@hospital.lat} 
-          Longitude: #{@hospital.lng}
-          #map
-          :javascript
-            function initMap() {
-              var uluru = {lat: #{@hospital.lat}, lng: #{@hospital.lng} };
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 6,
-                center: uluru
-              });
-              var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-              });
-            }
-        %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
-  
+      %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTUBDqxJw2PidgRgXPJg_p84LCVS026l8&callback=initMap"}
+
   %hr/
         
   .nav.nav-tabs.nav-justified
