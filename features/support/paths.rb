@@ -46,8 +46,8 @@ module NavigationHelpers
     when /^the signup page for donor (.*)$/
       "/users/sign_up?donor_id=#{$1}"
       
-    when /^the encrypted signup page for donor (.*)$/
-      "/users/sign_up?donor_id=#{1}" # edit later
+    when /^the secure signup page for donor ([0-9]*) with secret "(.*)"$/
+      "/users/sign_up?donor_id=#{$1}&secret=#{$2}"
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
