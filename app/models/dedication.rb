@@ -16,34 +16,8 @@ class Dedication < ActiveRecord::Base
     belongs_to :donor
     
     rails_admin do
-        list do
-            field :dedication
-            field :tier
-            field :donor
-            field :donor_name do
-                def value
-                    bindings[:object].donor.first_name + ' '  + bindings[:object].donor.last_name
-                end
-            end
-            field :hospital
-        end
         export do 
-            field :tier
-            field :donor_name do
-                def value
-                    bindings[:object].donor.first_name + ' ' + bindings[:object].donor.last_name
-                end
-            end
-            field :hospital_name do
-                def value
-                    bindings[:object].hospital.name
-                end
-            end
-            field :donor_email do
-                def value
-                    bindings[:object].donor.email
-                end
-            end
+            include_all_fields
             field :donor_has_account do
                 def value
                     bindings[:object].donor.user != nil
