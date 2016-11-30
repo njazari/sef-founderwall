@@ -22,7 +22,7 @@ Feature: Display Individual Dedication
     | id | tier     | dedication     | hospital_id | donor_id | status | published | date     |
     | 1  | Platinum | For the kids   | 1           | 1        | true   | true      | 03082015 |
     | 2  | Gold     | For the adults | 1           | 2        | true   | true      | 04022014 |
-    | 3  | Silver   | Go Sankara!    | 1           | 3        | false  | true      | 10102013 |
+    | 3  | Silver   | Go Sankara!    | 1           | 3        | true  | true      | 10102013 |
      
     And I am on the individual dedication page for "John Smith" with dedication "1"
     
