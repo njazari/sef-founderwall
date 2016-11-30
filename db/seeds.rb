@@ -35,6 +35,9 @@ donors.each do |donor|
   elsif Donor.find(donor[:id]).status.nil?
     d = Donor.find(donor[:id])
     d.update(status: donor[:status])
+  elsif Donor.find(donor[:id]).secret.nil?
+    d = Donor.find(donor[:id])
+    d.update(secret: donor[:secret])
   end
 end
 
