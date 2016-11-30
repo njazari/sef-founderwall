@@ -16,25 +16,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @donor = Donor.find(params[:user][:donor_id])
-    build_resource(sign_up_params)
-    resource.donor = @donor
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
+    if params[:user][:secret] != @donor.secret
+      flash[:error] = "Invalid secret. Please check the link you received in your email."
+      redirect_to '/users/sign_up?donor_id=' + params[:user][:donor_id].to_s + '&secret=' + params[:user][:secret]
     else
-      clean_up_passwords resource
-      set_minimum_password_length
-      flash[:error] = "Invalid password or nonmatching passwords. Please try again."
-      redirect_to '/users/sign_up?donor_id=' + @donor.id.to_s
+      build_resource(sign_up_params)
+      resource.donor = @donor
+      resource.save
+      yield resource if block_given?
+      if resource.persisted?
+        if resource.active_for_authentication?
+          set_flash_message! :notice, :signed_up
+          sign_up(resource_name, resource)
+          respond_with resource, location: after_sign_up_path_for(resource)
+        else
+          set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+          expire_data_after_sign_in!
+          respond_with resource, location: after_inactive_sign_up_path_for(resource)
+        end
+      else
+        clean_up_passwords resource
+        set_minimum_password_length
+        flash[:error] = "Invalid password or nonmatching passwords. Please try again."
+        redirect_to '/users/sign_up?donor_id=' + params[:user][:donor_id].to_s + '&secret=' + params[:user][:secret]
+      end
     end
   end
 

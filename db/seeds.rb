@@ -1,3 +1,5 @@
+require 'securerandom'
+
 hospitals = [{:id => 1, :name => 'Sankara Rural Eye Hospital', :surgeries => 15000, :city => "Krishnankoil", :state => "Tamil Nadu", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Rural Eye Hospital", :lat => 9.565389, :lng =>77.688760, :status => true},
             {:id => 2, :name => 'Sankara Eye Hospital', :surgeries => 10000, :city => "Ludhiana", :state => "Punjab", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Eye Hospital", :lat =>30.861098, :lng => 75.704154, :status => true},
             {:id => 3, :name => 'Bangalore Hospital', :surgeries => 134546, :city => "Bengaluru", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Bangalore Hospitall", :lat => 12.957378, :lng => 77.712852, :status => true},
@@ -27,6 +29,7 @@ donors = [{:id => 1, :first_name => 'Aaron', :last_name => 'Rowell', :email => '
   	 ]
 
 donors.each do |donor|
+  donor[:secret] = SecureRandom.urlsafe_base64
   if not Donor.exists?(donor[:id])
     Donor.create!(donor)
   elsif Donor.find(donor[:id]).status.nil?

@@ -8,7 +8,7 @@ Background:
   | id | name       | email           |  
   | 1  | John Smith | donor@donor.com |
    
- Scenario: manually inputting the url to sign up for a donor shouldn't work (url needs to be encrypted)
+ Scenario: manually inputting the url to sign up for a donor shouldn't work (url needs to contain secret)
     When I go to the signup page for donor 1
     Then I should be on the home page
   

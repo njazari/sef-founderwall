@@ -49,6 +49,11 @@ class Dedication < ActiveRecord::Base
                     bindings[:object].donor.user != nil
                 end
             end
+            field :donor_signup_link do
+                def value 
+                    bindings[:object].donor.signup_link
+                end
+            end
         end
     end
   
