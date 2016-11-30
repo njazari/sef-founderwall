@@ -10,7 +10,7 @@ class DedicationsController < ApplicationController
         else
             @published = @dedication.published
             if current_user
-                @donor_logged_in = current_user.donor == @dedication.donor
+                @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
             else
                 @donor_logged_in = false
             end
@@ -19,10 +19,10 @@ class DedicationsController < ApplicationController
     end
     
     def index
-        @dedications = Dedication.where(:status => true, :published => true)
+        @dedications = Dedication.visible
         
         @filterrific = initialize_filterrific(
-            Dedication, 
+            Dedication.visible, 
             params[:filterrific], 
             select_options: {
             sorted_by: Dedication.options_for_sorted_by,
@@ -79,5 +79,9 @@ class DedicationsController < ApplicationController
         else 
             redirect_to root_path
         end
+    end
+    
+    def _list
+        @published_dedications = Dedications.published
     end
 end

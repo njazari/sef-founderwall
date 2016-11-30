@@ -1,3 +1,5 @@
+require 'securerandom'
+
 hospitals = [{:id => 1, :name => 'Sankara Rural Eye Hospital', :surgeries => 15000, :city => "Krishnankoil", :state => "Tamil Nadu", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Rural Eye Hospital", :lat => 9.565389, :lng =>77.688760, :status => true},
             {:id => 2, :name => 'Sankara Eye Hospital', :surgeries => 10000, :city => "Ludhiana", :state => "Punjab", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Sankara Eye Hospital", :lat =>30.861098, :lng => 75.704154, :status => true},
             {:id => 3, :name => 'Bangalore Hospital', :surgeries => 134546, :city => "Bengaluru", :state => "Karnataka", :building_status => "Completed", :contact => "info@giftofvision.org", :story => "This is the story of The Bangalore Hospitall", :lat => 12.957378, :lng => 77.712852, :status => true},
@@ -27,6 +29,7 @@ donors = [{:id => 1, :first_name => 'Aaron', :last_name => 'Rowell', :email => '
   	 ]
 
 donors.each do |donor|
+  donor[:secret] = SecureRandom.urlsafe_base64
   if not Donor.exists?(donor[:id])
     Donor.create!(donor)
   elsif Donor.find(donor[:id]).status.nil?
@@ -40,15 +43,15 @@ dedications = [{:id => 1, :dedication => 'No more blindness!', :status => true, 
             {:id => 3, :dedication => 'Dedicated to my family', :status => true, :hospital_id => 2, :donor_id => 3, :tier => 'Silver', :published => true},
             {:id => 4, :dedication => 'Keep up the good work', :status => true, :hospital_id => 1, :donor_id => 2, :tier => 'Gold', :published => true},
             {:id => 5, :dedication => '20/20 for all', :status => true, :hospital_id => 1, :donor_id => 4, :tier => 'Gold', :published => true},
-            {:id => 6, :dedication => 'Go Sankara!', :status => true, :hospital_id => 3, :donor_id => 5, :tier => "Platinum"},
-            {:id => 7, :dedication => 'Keep it up!', :status => true, :hospital_id => 3, :donor_id => 1, :tier => "Silver"},
-            {:id => 8, :dedication => 'My favorite charity!', :status => true, :hospital_id => 4, :donor_id => 7, :tier => "Gold"},
-            {:id => 9, :dedication => 'Happy to help a great cause', :status => true, :hospital_id => 5, :donor_id => 8, :tier => "Platinum"},
-            {:id => 10, :dedication => 'Keep funding', :status => true, :hospital_id => 4, :donor_id => 9, :tier => "Silver"},
+            {:id => 6, :dedication => 'Go Sankara!', :status => true, :hospital_id => 3, :donor_id => 5, :tier => "Platinum", :published => false},
+            {:id => 7, :dedication => 'Keep it up!', :status => true, :hospital_id => 3, :donor_id => 1, :tier => "Silver", :published => false},
+            {:id => 8, :dedication => 'My favorite charity!', :status => true, :hospital_id => 4, :donor_id => 7, :tier => "Gold", :published => false},
+            {:id => 9, :dedication => 'Happy to help a great cause', :status => true, :hospital_id => 5, :donor_id => 8, :tier => "Platinum", :published => false},
+            {:id => 10, :dedication => 'Keep funding', :status => true, :hospital_id => 4, :donor_id => 9, :tier => "Silver", :published => false},
             {:id => 11, :dedication => 'I love Sankara', :status => false, :hospital_id => 1, :donor_id => 8, :tier => "Platinum", :published => true},
-            {:id => 12, :dedication => 'I hate blindness!', :status => true, :hospital_id => 5, :donor_id => 10, :tier => "Gold"},
-            {:id => 13, :hospital_id => 1, :donor_id => 2, :tier => "Silver"},
-            {:id => 14, :hospital_id => 1, :donor_id => 3, :tier => "Silver"}
+            {:id => 12, :dedication => 'I hate blindness!', :status => true, :hospital_id => 5, :donor_id => 10, :tier => "Gold", :published => false},
+            {:id => 13, :hospital_id => 1, :donor_id => 2, :tier => "Silver", :published => false},
+            {:id => 14, :hospital_id => 1, :donor_id => 3, :tier => "Silver", :published => false}
   	 ]
 
 dedications.each do |dedication|

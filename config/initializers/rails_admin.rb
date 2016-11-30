@@ -2,6 +2,7 @@ RailsAdmin.config do |config|
   config.authorize_with do
     redirect_to main_app.new_user_session_path unless current_user != nil and current_user.admin == true
   end
+  
   config.current_user_method(&:current_user)
   ### Popular gems integration
 
