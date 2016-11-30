@@ -5,10 +5,14 @@ Feature:
   
 Background:
   Given the following donors exist
-  | id | first_name | last_name | email           | 
+  | id | first_name | last_name | email           |
   | 1  | John       | Smith     | donor@donor.com |
    
+Scenario: donor should be able to sign up through url with correct secret
+    Given I sign up as donor 1 with the correct secret
+    Then I should be on the donor page for "John Smith"
+    
 Scenario: donor should not be able to sign up through url with incorrect secret
-    When I go to the secure signup page for donor 1 with secret "wrongsecret"
-    And I press "Sign up"
+    Given I sign up as donor 1 with an incorrect secret
     Then I should see "Invalid secret"
+    And I should be on the sign up page
