@@ -1,3 +1,4 @@
+require 'will_paginate' 
 require 'securerandom'
 
 class Donor < ActiveRecord::Base
