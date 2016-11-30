@@ -28,6 +28,6 @@ class Donor < ActiveRecord::Base
     end
     
     def signup_link
-        '/users/sign_up?donor_id=' + self.id.to_s + '&secret=' + self.secret
+        'sef-founderwall.herokuapp.com/users/sign_up?donor_id=' + self.id.to_s + '&secret=' + self.secret
     end
 end
