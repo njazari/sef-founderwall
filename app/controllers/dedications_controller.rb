@@ -22,7 +22,7 @@ class DedicationsController < ApplicationController
         @dedications = Dedication.visible
         
         @filterrific = initialize_filterrific(
-            Dedication, 
+            Dedication.visible, 
             params[:filterrific], 
             select_options: {
             sorted_by: Dedication.options_for_sorted_by,
