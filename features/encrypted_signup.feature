@@ -5,16 +5,14 @@ Feature:
   
 Background:
   Given the following donors exist
-  | id | name       | email           |  
-  | 1  | John Smith | donor@donor.com |
+  | id | first_name | last_name | email           |
+  | 1  | John       | Smith     | donor@donor.com |
    
- Scenario: manually inputting the url to sign up for a donor shouldn't work (url needs to be encrypted)
-    When I go to the signup page for donor 1
-    Then I should be on the home page
-  
- Scenario: donor should be able to sign up through encrypted url
-    When I go to the encrypted signup page for donor 1
-    Then I should see "Sign up"
-    And I should see "Email"
-    And I should see "donor@donor.com"
-    And I should see "Password"
+Scenario: donor should be able to sign up through url with correct secret
+    Given I sign up as donor 1 with the correct secret
+    Then I should be on the donor page for "John Smith"
+    
+Scenario: donor should not be able to sign up through url with incorrect secret
+    Given I sign up as donor 1 with an incorrect secret
+    Then I should see "Invalid secret"
+    And I should be on the sign up page

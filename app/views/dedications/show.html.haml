@@ -1,26 +1,25 @@
-.container
-    .main-area
-        %h3= "SEF Dedication Page"
-        %h1= link_to "#{@dedication.donor.first_name} #{@dedication.donor.last_name}", donor_path(Donor.find(@dedication.donor_id))
-        .column.content
-            // %p This is the Content.
-            %p= link_to "#{@hospital.name}", hospital_path(@hospital)
-            - if @donor_logged_in && !@published
-                %p= link_to "Edit", edit_dedication_path(@dedication.id)
-
-            %ul#dedication_info
-                %li
-                    ID:
-                    = @dedication.id
-                %li
-                    Tier:
-                    = @dedication.tier
-                %li
-                    Dedication:
-                    = @dedication.dedication
-        .column.sidebar
-            // %p This is the Sidebar.
-            %p= social_share_button_tag("A donation to #{@hospital.name} by #{@dedication.donor.first_name} #{@dedication.donor.last_name} #SankaraEyeFoundation")
-        .column.side-nav
-            // %p This is the Navigation.
-
+.section.section-our-team-freebie
+    .parallax.filter.filter-color-black
+        .image{:style => "background-image: url(#{image_path 'wood.jpg'})"}
+        .container
+            .content
+                .team
+                    .row
+                        .col-md-6.col-md-offset-3
+                            .card.card-member
+                                .content
+                                    .avatar.avatar-danger
+                                        .img-circle
+                                            = image_tag "#{@dedication.tier.downcase}.png"
+                                    .description
+                                        %h3.title 
+                                            = link_to "#{@dedication.donor.first_name} #{@dedication.donor.last_name}", donor_path(Donor.find(@dedication.donor_id))
+                                        %p.small-text 
+                                            = @dedication.tier
+                                        %p.description 
+                                            = @dedication.dedication
+                                        // %p This is the Content.
+                                        %p= link_to "#{@hospital.name}", hospital_path(@hospital)
+                                        - if @donor_logged_in && !@published
+                                            %p= link_to "Edit", edit_dedication_path(@dedication.id)
+                                        %p= social_share_button_tag("A donation to #{@hospital.name} by #{@dedication.donor.first_name} #{@dedication.donor.last_name} #SankaraEyeFoundation")

@@ -14,6 +14,22 @@ class Dedication < ActiveRecord::Base
     belongs_to :hospital
     belongs_to :donor
     
+    rails_admin do
+        export do 
+            include_all_fields
+            field :donor_has_account do
+                def value
+                    bindings[:object].donor.user != nil
+                end
+            end
+            field :donor_signup_link do
+                def value 
+                    bindings[:object].donor.signup_link
+                end
+            end
+        end
+    end
+
     scope :search_query, lambda { |query|
     # Searches the dedications table on the 'dedication' column.
     # Matches using LIKE, automatically appends '%' to each term.
@@ -40,9 +56,9 @@ class Dedication < ActiveRecord::Base
         }.join('AND'),
         *terms.map { |e| [e] * num_or_conds }.flatten
         # Mess with the AND/OR stuff to get first name last name working.
-    )
-}
-  
+        )
+    }
+
     scope :sorted_by, lambda { |sort_option|
         direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
         case sort_option.to_s
@@ -67,5 +83,9 @@ class Dedication < ActiveRecord::Base
     
     def self.tiers
         ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
+    end
+    
+    def self.visible
+        Dedication.where(:status => true, :published => true)
     end
 end

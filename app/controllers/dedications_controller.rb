@@ -3,25 +3,26 @@ class DedicationsController < ApplicationController
     WillPaginate.per_page = 9
     
     def show
-        @dedication = Dedication.find(params[:id])
-        @published = @dedication.published
-        if current_user
-            @donor_logged_in = current_user.donor == @dedication.donor
+        @dedication = Dedication.find_by_id(params[:id])
+        if @dedication.nil? or @dedication.status == false
+            @error = 'Dedication'
+            render 'errors/status'
         else
-            @donor_logged_in = false
+            @published = @dedication.published
+            if current_user
+                @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
+            else
+                @donor_logged_in = false
+            end
+            @hospital = Hospital.find(@dedication.hospital_id)
         end
-        if @dedication.status == false
-            flash[:error] = "dedication"
-            redirect_to errors_path
-        end
-        @hospital = Hospital.find(@dedication.hospital_id)
     end
     
     def index
-        @dedications = Dedication.where(:status => true, :published => true)
+        @dedications = Dedication.visible
         
         @filterrific = initialize_filterrific(
-            Dedication, 
+            Dedication.visible, 
             params[:filterrific], 
             select_options: {
             sorted_by: Dedication.options_for_sorted_by,
@@ -78,5 +79,9 @@ class DedicationsController < ApplicationController
         else 
             redirect_to root_path
         end
+    end
+    
+    def _list
+        @published_dedications = Dedications.published
     end
 end
