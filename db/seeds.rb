@@ -60,6 +60,9 @@ dedications.each do |dedication|
   elsif Dedication.find(dedication[:id]).status.nil?
     d = Dedication.find(dedication[:id])
     d.update(status: dedication[:status])
+  elsif Dedication.find(dedication[:id]).published.nil?
+    d = Dedication.find(dedication[:id])
+    d.update(published: dedication[:published])
   end
 end
 

@@ -15,11 +15,11 @@ Feature: Search for data
     | 2  | John | Williams | jw123@yahoo.com  | 213-345-9824 | true | 
     | 3  | Tina | Martinez | tmart@gmail.com | 253-726-9827 | true |
     And the following dedications exist
-    | id | tier | dedication  | hospital_id | donor_id | status |
-    | 1  | Platinum | For the kids | 1 | 1 | true |
-    | 2  | Gold | For the adults   | 1 | 2 | true |
-    | 3  | Silver | Go Sankara! | 2 | 3 | true |
-    | 4  | Platinum | I love eyes! | 1 | 1 | true |
+    | id | tier | dedication  | hospital_id | donor_id | status | published |
+    | 1  | Platinum | For the kids | 1 | 1 | true | true |
+    | 2  | Gold | For the adults   | 1 | 2 | true | true |
+    | 3  | Silver | Go Sankara! | 2 | 3 | true | true |
+    | 4  | Platinum | I love eyes! | 1 | 1 | true | true |
     
     Scenario: When I search for a donor's name, I should only see the dedications for that donor
       Given I am on the all dedications page
