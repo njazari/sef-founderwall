@@ -40,4 +40,8 @@ class Dedication < ActiveRecord::Base
     def self.tiers
         ['Platinum', 'Gold', 'Silver'] # ordered list of tiers
     end
+    
+    def self.visible
+        Dedication.where(:status => true, :published => true)
+    end
 end

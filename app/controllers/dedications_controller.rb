@@ -10,16 +10,16 @@ class DedicationsController < ApplicationController
         else
             @published = @dedication.published
             if current_user
-                @donor_logged_in = current_user.donor == @dedication.donor
+                @show_unpublished = current_user.donor == @dedication.donor || current_user.admin?
             else
-                @donor_logged_in = false
+                @show_unpublished = false
             end
             @hospital = Hospital.find(@dedication.hospital_id)
         end
     end
     
     def index
-        @dedications = Dedication.where(:status => true, :published => true)
+        @dedications = Dedication.visible
         
         @filterrific = initialize_filterrific(
             Dedication, 
@@ -79,5 +79,9 @@ class DedicationsController < ApplicationController
         else 
             redirect_to root_path
         end
+    end
+    
+    def _list
+        @published_dedications = Dedications.published
     end
 end
