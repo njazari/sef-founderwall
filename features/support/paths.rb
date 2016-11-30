@@ -49,6 +49,8 @@ module NavigationHelpers
     when /^the encrypted signup page for donor (.*)$/
       "/users/sign_up?donor_id=#{1}" # edit later
       
+    when /^the dedications page for query "(.*)"$/
+      "dedications?filterrific%5Bsearch_query%5D=#{$1.split(" ")[0]}+#{$1.split(" ")[1]}"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

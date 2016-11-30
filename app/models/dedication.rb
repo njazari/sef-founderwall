@@ -30,16 +30,16 @@ class Dedication < ActiveRecord::Base
     # configure number of OR conditions for provision
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
-    num_or_conds = 4
+    num_or_conds = 3
     joins(:donor).joins(:hospital).
     where(
         terms.map { |term|
         "(LOWER(dedications.dedication) LIKE ? OR
-        LOWER(donors.first_name) LIKE ? OR
-        LOWER(donors.last_name) LIKE ? OR 
+        LOWER(donors.first_name || ' ' || donors.last_name) LIKE ? OR
         LOWER(hospitals.name) LIKE ?)"
         }.join('AND'),
         *terms.map { |e| [e] * num_or_conds }.flatten
+        # Mess with the AND/OR stuff to get first name last name working.
     )
 }
   
