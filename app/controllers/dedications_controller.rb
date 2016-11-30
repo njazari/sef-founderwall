@@ -10,9 +10,9 @@ class DedicationsController < ApplicationController
         else
             @published = @dedication.published
             if current_user
-                @show_unpublished = current_user.donor == @dedication.donor || current_user.admin?
+                @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
             else
-                @show_unpublished = false
+                @donor_logged_in = false
             end
             @hospital = Hospital.find(@dedication.hospital_id)
         end

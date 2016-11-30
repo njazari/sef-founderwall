@@ -9,9 +9,9 @@ class DonorsController < ApplicationController
             @donor_published_dedications_by_tier = @donor.dedications_by_tier(true)
             @donor_unpublished_dedications_by_tier = @donor.dedications_by_tier(false)
             if current_user
-                @donor_logged_in = current_user.donor == @donor || current_user.admin?
+                @show_unpublished = current_user.donor == @donor || current_user.admin?
             else
-                @donor_logged_in = false
+                @show_unpublished = false
             end
         end
     end
