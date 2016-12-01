@@ -32,12 +32,6 @@ Feature: List of Dedications for a Donor
     And I follow "Hospital 1"
     Then I should be on the hospital page for "Hospital 1"
     
-  Scenario: When I click on a dedication page, I should be taken to that dedication's page
-    And I follow "view_2"
-    Then I should be on the dedication page for dedication 2
-    
   Scenario: When I visit a hidden donor I should see an error page
     Given I am on the donor page for "Tina Martinez" 
     Then I should see "Invalid Donor ID"
-    
-    

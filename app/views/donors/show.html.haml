@@ -1,29 +1,40 @@
-%h1 #{@donor.first_name} #{@donor.last_name}
-
-%h2 Published Dedications
-- @tiers.each do |tier|
-  - @donor_published_dedications_by_tier[tier].each do |dedication|
-    %div{:class => "dedication", :id => dedication.id} 
-      .col-md-4.portfolio-item
-        .panel.panel-default
-          .panel-heading
-            %h4= dedication.tier
-          .panel-body
-            %p= dedication.dedication
-            %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
-            %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-
-- if @show_unpublished
-  %h2 Unpublished Dedications
-  - @tiers.each do |tier|
-    - @donor_unpublished_dedications_by_tier[tier].each do |dedication|
-      %div{:class => "dedication", :id => dedication.id} 
-        .col-md-4.portfolio-item
-          .panel.panel-default
-            .panel-heading
-              %h4= dedication.tier
-            .panel-body
-              %p= dedication.dedication
-              %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
-              %p= link_to "View Dedication", dedication_path(dedication), :id => "view_#{dedication.id}"
-              %p= link_to "Edit", edit_dedication_path(dedication.id)
+.container
+  .devise
+    %h1 #{@donor.first_name} #{@donor.last_name}
+    %hr/
+    
+    %h3 Published Dedications
+    - @tiers.each do |tier|
+      .row
+        - @donor_published_dedications_by_tier[tier].each do |dedication|
+          %div{:class => "dedication", :id => dedication.id} 
+            .col-md-4
+              .panel.panel-info
+                .panel-heading
+                  %h4= dedication.tier
+                .panel-body
+                  %p= dedication.dedication
+                  %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+                  .btn.btn-default.btn-round.btn-sm
+                    %a{:href => dedication_path(dedication)}
+                      View Dedication
+    
+    - if @show_unpublished
+      %h3 Unpublished Dedications
+      - @tiers.each do |tier|
+        .row
+          - @donor_unpublished_dedications_by_tier[tier].each do |dedication|
+            %div{:class => "dedication", :id => dedication.id} 
+              .col-md-4
+                .panel.panel-info
+                  .panel-heading
+                    %h4= dedication.tier
+                  .panel-body
+                    %p= dedication.dedication
+                    %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+                    .btn.btn-default.btn-round.btn-sm
+                      %a{:href => dedication_path(dedication)}
+                        View Dedication
+                    .btn.btn-default.btn-round.btn-sm
+                      %a{:href => edit_dedication_path(dedication.id)}
+                        Edit
