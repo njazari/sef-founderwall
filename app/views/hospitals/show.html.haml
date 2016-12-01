@@ -12,16 +12,14 @@
       = image_tag "sankara2.jpg", class: "img-responsive img-thumbnail"
     .col-md-4
       %h3 Project Description
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
+      %p 
+        = @hospital.story
       %li
         Surgeries:
         = @hospital.surgeries
       %li
         Cost:
         = @hospital.cost
-      %li
-        Story:
-        = @hospital.story
 
       %head
       %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
