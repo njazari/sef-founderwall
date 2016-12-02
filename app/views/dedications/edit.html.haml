@@ -1,17 +1,19 @@
-%h1 Edit Dedication and Consent for Digital Wall of Founders
-
-= form_tag dedication_path(@dedication), :method => :put do
-
-  %h2 Dedication
-  = label :dedication, :dedication, 'Write a dedication for your donation'
-  = text_field :dedication, 'dedication'
-
-  %h2 Digital Wall of Founders
-  = label :dedication, :status, 'I want my dedication to appear on the Digital Wall of Founders'
-  = check_box :dedication, 'status', {}, 'true', 'false'
-
-  %p We want to keep the Digital Wall of Founders as close to the physical Walls of Founders 
-  in hospitals as possible, so once you "Publish" your dedication you must contact an admin to change it. 
-  Until you publish your dedication it will not appear on the Digital Wall of Founders.
-  = submit_tag 'Save'
-  = submit_tag 'Publish', name: 'publish'
+.container
+  .devise
+    %h1 Edit Dedication and Consent for Digital Wall of Founders
+    
+    = form_tag dedication_path(@dedication), :method => :put do
+    
+      %h2 Dedication
+      = label :dedication, :dedication, 'Write a dedication for your donation'
+      = text_field :dedication, 'dedication'
+    
+      %h2 Digital Wall of Founders
+      = label :dedication, :status, 'I want my dedication to appear on the Digital Wall of Founders'
+      = check_box :dedication, 'status', {}, 'true', 'false'
+    
+      %p We want to keep the Digital Wall of Founders as close to the physical Walls of Founders 
+      in hospitals as possible, so once you "Publish" your dedication you must contact an admin to change it. 
+      Until you publish your dedication it will not appear on the Digital Wall of Founders.
+      = submit_tag 'Save'
+      = submit_tag 'Publish', name: 'publish'

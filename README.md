@@ -11,8 +11,34 @@ Wall of Founders for Sankara Eye Foundation (Fall16 CS169 Project)
 
 [Sankara Eye Foundation](http://www.giftofvision.org)
 
-The Sankara Eye Foundation is looking for a new way to engage donors and encourage recurring donations.
-The Sankara Eye Foundation wants a "Wall of Founders" to showcase different users' donations and as
-a way for donors to see the impact of their donation. The hope is that with an engaging application, 
-users will immediately see the impact of their donations and in turn stay involved with the organization, 
-as well as receive proper recognition for their generosity. 
+The Sankara Eye Foundation (SEF) initiates and drives eye care activities in India for the impoverished. As of 2014, SEF has
+provided over 1.25 million free eye surgeries in India. Donors who donate in excess of $1000 are eligible to be featured on the “Wall of Founders” 
+built ~5 years after donating & located at the hospital in India.
+
+In an effort to increase donor retention rate and attract new donors, SEF is making a Digital Wall of Founders. The Digital Wall of Founders
+is a vitrual impression of each hospital's physical Wall of Founders and displays donors’ names and dedication messages for each donation.
+The Digital Wall also shows donation tiers, provides social media sharing, and has search options. 
+The Digital Wall serves as relatively instant recognition for donors who wouldn’t otherwise get it until years later.
+
+Setup/Testing
+-------------
+1. Install ruby, rvm, rails, cucumber.  
+2. Clone this repo  
+
+    `$ git clone https://github.com/njazari/sef-founderwall.git`
+
+3. Run the following from the project's root path:
+
+    ```
+    $ bundle install
+    $ rake db:setup
+    ```
+
+4. Run app on localhost:  
+
+    `$ rail s`
+    
+5. Run Cucumber tests
+
+    `$ rake cucumber`
+
