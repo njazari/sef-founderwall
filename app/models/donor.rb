@@ -20,8 +20,11 @@ class Donor < ActiveRecord::Base
         end
     end 
     
-    def before_import_save(record)
-        if record.key?(:tier) and record(:tier).present?
+    def after_import_save(record)
+        if record.key?(:tier) and record[:tier].present?
+            d = Dedication.where(donor_id: self.id, tier: nil).first
+            d.tier = record[:tier]
+            d.save
         end
     end
     
