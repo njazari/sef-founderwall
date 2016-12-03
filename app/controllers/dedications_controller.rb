@@ -59,11 +59,7 @@ class DedicationsController < ApplicationController
             flash[:notice] = "Your dedication has been published. Go to #{hospital.name}'s page to see it on the Digital Wall of Founders!"
         end
         @dedication.save!
-        if @dedication.status
-            redirect_to donor_path(@dedication.donor)
-        else 
-            redirect_to root_path
-        end
+        redirect_to donor_path(@dedication.donor)
     end
     
     def _list
