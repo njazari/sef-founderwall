@@ -8,7 +8,7 @@ class DedicationsController < ApplicationController
         if current_user
             @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
         end
-        if @dedication.nil? or @dedication.status == false and !@donor_logged_in
+        if @dedication.nil? or !@dedication.status and !@donor_logged_in
             @error = 'Dedication'
             render 'errors/status'
         else
