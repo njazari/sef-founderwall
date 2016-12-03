@@ -33,6 +33,10 @@
               %li
                 %a{:href => rails_admin_path}
                   Admin Portal
+            - if current_user != nil and current_user.admin != true and not Donor.where(email: current_user.email).empty?
+              %li
+                %a{:href => donor_path(Donor.where(email: current_user.email).ids)}
+                  My Dedications
             - if not user_signed_in?
               %li
                 %a{:href => new_user_session_path} 
