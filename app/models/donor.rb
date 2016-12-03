@@ -20,6 +20,10 @@ class Donor < ActiveRecord::Base
         end
     end 
     
+    def before_import_save(record)
+        byebug
+    end
+    
     def dedications_by_tier(published)
         dbt = Hash.new
         Dedication.tiers.each do |tier|
