@@ -4,16 +4,15 @@ class DedicationsController < ApplicationController
     
     def show
         @dedication = Dedication.find_by_id(params[:id])
-        if @dedication.nil? or @dedication.status == false
+        @donor_logged_in = false
+        if current_user
+            @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
+        end
+        if @dedication.nil? or @dedication.status == false and !@donor_logged_in
             @error = 'Dedication'
             render 'errors/status'
         else
             @published = @dedication.published
-            if current_user
-                @donor_logged_in = current_user.donor == @dedication.donor || current_user.admin?
-            else
-                @donor_logged_in = false
-            end
             @hospital = Hospital.find(@dedication.hospital_id)
         end
     end
