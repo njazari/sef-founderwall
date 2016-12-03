@@ -35,6 +35,7 @@ RailsAdmin.config do |config|
     show
     edit
     show_in_app
+    delete
 
     ## With an audit adapter, you can add:
     # history_index
