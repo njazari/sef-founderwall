@@ -30,8 +30,14 @@ class Donor < ActiveRecord::Base
     
     def dedications_by_tier(published)
         dbt = Hash.new
-        Dedication.tiers.each do |tier|
-            dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :status => true, :published => published)
+        if published
+            Dedication.tiers.each do |tier|
+                dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :published => published)
+            end
+        else
+             Dedication.tiers.each do |tier|
+                dbt[tier] = Dedication.where(:donor => self.id, :tier => tier, :published => published)           
+            end
         end
         dbt
     end

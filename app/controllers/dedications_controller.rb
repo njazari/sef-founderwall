@@ -41,20 +41,6 @@ class DedicationsController < ApplicationController
         redirect_to(reset_filterrific_url(format: :html)) and return
     end
     
-    def new
-    end
-    
-    def create
-        @dedication = Dedication.new(dedication => params[:dedication][:dedication], 
-                                     status => params[:dedication][:status])
-        if params[:publish]
-            hospital = Hospital.find(@dedication.hospital_id)
-            flash[:notice] = "Your dedication has been published. Go to #{hospital.name}'s page to see it on the Digital Wall of Founders!"
-        end
-        redirect_to dedication_path(@dedication)
-    end
-        
-    
     def edit
         @dedication = Dedication.find(params[:id])
         if @dedication.published

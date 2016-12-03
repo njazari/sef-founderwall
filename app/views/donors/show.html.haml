@@ -6,19 +6,20 @@
     - @tiers.each do |tier|
       .row
         - @donor_published_dedications_by_tier[tier].each do |dedication|
-          %div{:class => "dedication", :id => dedication.id} 
-            .col-md-4
-              .panel.panel-info
-                .panel-heading
-                  %h4= dedication.tier
-                .panel-body
-                  %p= dedication.dedication
-                  %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
-                  .btn.btn-default.btn-round.btn-sm
-                    %a{:href => dedication_path(dedication)}
-                      View Dedication
+          - if dedication.status || @show_invisible
+            %div{:class => "dedication", :id => dedication.id} 
+              .col-md-4
+                .panel.panel-info
+                  .panel-heading
+                    %h4= dedication.tier
+                  .panel-body
+                    %p= dedication.dedication
+                    %p= link_to "#{dedication.hospital.name}", hospital_path(Hospital.find(dedication.hospital_id))
+                    .btn.btn-default.btn-round.btn-sm
+                      %a{:href => dedication_path(dedication)}
+                        View Dedication
     
-    - if @show_unpublished
+    - if @show_invisible
       %h3 Unpublished Dedications
       - @tiers.each do |tier|
         .row
