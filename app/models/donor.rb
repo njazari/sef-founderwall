@@ -21,7 +21,8 @@ class Donor < ActiveRecord::Base
     end 
     
     def before_import_save(record)
-        byebug
+        if record.key?(:tier) and record(:tier).present?
+        end
     end
     
     def dedications_by_tier(published)
