@@ -6,6 +6,29 @@ class Donor < ActiveRecord::Base
     has_many :hospitals, :through => :dedications
     has_one :user
     
+    rails_admin do
+        list do
+            include_all_fields
+            field :user do
+                filterable true
+            end
+        end
+        
+        export do 
+            include_all_fields
+            field :has_account do
+                def value
+                    bindings[:object].has_account
+                end
+            end
+            field :signup_link do
+                def value 
+                    bindings[:object].signup_link
+                end
+            end
+        end
+    end
+
     after_initialize do 
         if new_record? 
             if self.status.nil? then self.status = true end 
@@ -40,6 +63,14 @@ class Donor < ActiveRecord::Base
             end
         end
         dbt
+    end
+    
+    def has_account
+        if self.user != nil
+            'true'
+        else
+            'false'
+        end
     end
     
     def signup_link

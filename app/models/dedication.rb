@@ -14,22 +14,6 @@ class Dedication < ActiveRecord::Base
     belongs_to :hospital
     belongs_to :donor
     
-    rails_admin do
-        export do 
-            include_all_fields
-            field :donor_has_account do
-                def value
-                    bindings[:object].donor.user != nil
-                end
-            end
-            field :donor_signup_link do
-                def value 
-                    bindings[:object].donor.signup_link
-                end
-            end
-        end
-    end
-
     scope :search_query, lambda { |query|
     # Searches the dedications table on the 'dedication' column.
     # Matches using LIKE, automatically appends '%' to each term.
