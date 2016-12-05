@@ -7,16 +7,23 @@ class Donor < ActiveRecord::Base
     has_one :user
     
     rails_admin do
+        list do
+            include_all_fields
+            field :user do
+                filterable true
+            end
+        end
+        
         export do 
             include_all_fields
             field :has_account do
                 def value
-                    bindings[:object].donor.user != nil
+                    bindings[:object].has_account
                 end
             end
             field :signup_link do
                 def value 
-                    bindings[:object].donor.signup_link
+                    bindings[:object].signup_link
                 end
             end
         end
@@ -56,6 +63,14 @@ class Donor < ActiveRecord::Base
             end
         end
         dbt
+    end
+    
+    def has_account
+        if self.user != nil
+            'true'
+        else
+            'false'
+        end
     end
     
     def signup_link
